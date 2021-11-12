@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import {
@@ -28,9 +29,11 @@ function Home() {
               <p className={`mb-4 ${styles.textSlogan}`}>
                 "Kenali saya karena kemampuan saya, bukan disabilitas saya."
               </p>
-              <Button className="me-3" variant="success">
-                Sign Up
-              </Button>
+              <Link to="/register">
+                <Button className="me-3" variant="success">
+                  Sign Up
+                </Button>
+              </Link>
               <Button href="#videoMotivasi">Watch Video</Button>
             </Col>
             <Col md lg="8" className="mt-3">

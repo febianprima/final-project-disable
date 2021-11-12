@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import styles from "../Css/Header.module.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -23,9 +24,11 @@ function Header() {
                 Contact
               </Nav.Link>
             </Nav>
-            <Button variant="success" className={styles.btnLogin}>
-              Login
-            </Button>
+            <Link to="/login">
+              <Button variant="success" className={styles.btnLogin}>
+                Login
+              </Button>
+            </Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>
