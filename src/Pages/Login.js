@@ -20,21 +20,22 @@ import Api from "../Utils/Api";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
-    const config = {
-      headers: {
-        "X-Authorization": "blablabla",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "X-Authorization": "blablabla",
+    //   },
+    // };
     await axios
-      .post(Api.userLogin, { email, password }, config)
+      .post(Api.userLogin, { email, password })
       .then((res) => {
         const result = res.data;
+        console.log(result)
         if (res.status === 200) {
-          localStorage.setItem("userToken", result.token);
+          // localStorage.setItem("userToken", result.token);
           // localStorage.removeItem("userToken")
           navigate("/feed");
         } else {
@@ -66,7 +67,7 @@ const Login = () => {
                       <CFormInput
                         placeholder="Username"
                         autoComplete="username"
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
