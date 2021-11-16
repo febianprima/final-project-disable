@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   CButton,
   CCard,
@@ -15,8 +15,37 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser } from "@coreui/icons";
+import axios from "axios";
+import Api from "../Utils/Api";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [email, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async () => {
+    const config = {
+      headers: {
+        "X-Authorization": "blablabla",
+      },
+    };
+    await axios
+      .post(Api.userLogin, { email, password }, config)
+      .then((res) => {
+        const result = res.data;
+        if (res.status === 200) {
+          localStorage.setItem("userToken", result.token);
+          // localStorage.removeItem("userToken")
+          navigate("/feed");
+        } else {
+          alert(result.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -37,6 +66,7 @@ const Login = () => {
                       <CFormInput
                         placeholder="Username"
                         autoComplete="username"
+                        onChange={(e) => setUsername(e.target.value)}
                       />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
@@ -47,11 +77,16 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton href="/feed" color="primary" className="px-4">
+                        <CButton
+                          color="primary"
+                          className="px-4"
+                          onClick={() => handleSubmit()}
+                        >
                           Login
                         </CButton>
                       </CCol>
