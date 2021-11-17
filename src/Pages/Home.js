@@ -43,49 +43,48 @@ function Home() {
 
           {/* Features */}
           <CardGroup className="mt-5 mb-5">
-            <Card className={`me-4 bg-transparent ${styles.borderNone}`}>
-              <Card.Img
-                className={styles.imgFeature}
-                variant="top"
-                src="../Assets/feature1.png"
-              />
+            <Card
+              className={`me-4 bg-transparent text-center ${styles.borderNone}`}
+            >
+              <div className="d-flex justify-content-center">
+                <Card.Img
+                  className={styles.imgFeature}
+                  variant="top"
+                  src="../Assets/voice-recognition.png"
+                />
+              </div>
               <Card.Body>
-                <Card.Title>Feature 1</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
+                <Card.Title>Voice input system</Card.Title>
               </Card.Body>
             </Card>
-            <Card className={`me-4 bg-transparent ${styles.borderNone}`}>
-              <Card.Img
-                className={styles.imgFeature}
-                variant="top"
-                src="../Assets/feature1.png"
-              />
+            <Card
+              className={`me-4 bg-transparent text-center ${styles.borderNone}`}
+            >
+              <div className="d-flex justify-content-center">
+                <Card.Img
+                  className={styles.imgFeature}
+                  variant="top"
+                  src="../Assets/hr-manager.png"
+                />
+              </div>
               <Card.Body>
-                <Card.Title>Feature 2</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
+                <Card.Title>
+                  Consulting your struggle with professional
+                </Card.Title>
               </Card.Body>
             </Card>
-            <Card className={`me-4 bg-transparent ${styles.borderNone}`}>
-              <Card.Img
-                className={styles.imgFeature}
-                variant="top"
-                src="../Assets/feature1.png"
-              />
+            <Card
+              className={`me-4 bg-transparent text-center ${styles.borderNone}`}
+            >
+              <div className="d-flex justify-content-center">
+                <Card.Img
+                  className={styles.imgFeature}
+                  variant="top"
+                  src="../Assets/disabled-person.png"
+                />
+              </div>
               <Card.Body>
-                <Card.Title>Feature 3</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
+                <Card.Title>Disability friendly platform</Card.Title>
               </Card.Body>
             </Card>
           </CardGroup>

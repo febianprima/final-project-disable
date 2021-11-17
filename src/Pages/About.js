@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../Css/About.module.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { Button, Container } from "react-bootstrap";
 
 function About() {
   return (
@@ -19,9 +20,9 @@ function About() {
               align-items-center
             "
         >
-          <div className="py-5 px-5 container">
+          <Container className="px-5">
             <h2 className="pt-5 fw-bolder text-center mb-3">About Us</h2>
-            <p className="pb-5 px-5 text-center">
+            <p className="px-5 text-center">
               As a brandnew Catalyst, we are aiming to become one of the best
               tech companies in Indonesia. Joining the tech industry in
               Indonesia since 2015 under the name of Sepulsa, we have evolved as
@@ -29,7 +30,8 @@ function About() {
               Bill Payment Aggregator, Distribution Network, Promotion Platform,
               and Tech Academy.
             </p>
-          </div>
+          </Container>
+          <Button className="mt-5">Contact</Button>
         </div>
       </div>
 
