@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
 import {
   Container,
   Row,
@@ -10,7 +11,6 @@ import {
   Button,
   Card,
   CardGroup,
-  Carousel,
 } from "react-bootstrap";
 import styles from "../Css/Home.module.css";
 import ReactPlayer from "react-player/youtube";
@@ -90,22 +90,60 @@ function Home() {
           </CardGroup>
 
           {/* Article */}
-          <Row style={{ marginTop: "100px", marginBottom: "100px" }}>
-            <Col lg="6">
-              <p className={styles.textArtikel}>Lorem Ipsum is simply dummy</p>
-              <p>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+          <p className={`text-center mb-4 ${styles.quotes}`}>Article</p>
+          <Row xs={1} md={2} className="mb-5 g-4">
+            <Col>
+              <Card>
+                <Card.Img variant="top" src="../Assets/michael-anthony.jpg" />
+                <Card.Body>
+                  <Card.Title>Michael Anthony</Card.Title>
+                  <Card.Text>
+                    Michael Anthony sejak lahir tunanetra dan autis, namun pada
+                    usia 8 tahun tanpa mengenal notasi musik dan tanpa tahu
+                    siapa itu Ludwig van Beethoven dan tanpa bimbingan siapa pun
+                    hanya berkat beberapa kali secara kebetulan atas kehendak
+                    diri sendiri mendengar rekaman tiga mahasonata mahakarya
+                    Ludwig van Beethoven sudah hafal luar kepala serta mampu
+                    utuh mempergelarakan Sonata opus 13.
+                  </Card.Text>
+                  <Card.Link
+                    href="https://www.industry.co.id/read/6764/michael-anthony-pianis-muda-tuna-netra-dan-autis-terima-penghargaan-muri"
+                    target="_blank"
+                  >
+                    Read More ...
+                  </Card.Link>
+                </Card.Body>
+              </Card>
             </Col>
-            <Col lg="6">
-              <Image style={{ width: "95%" }} src="../Assets/Image.jpg" />
+            <Col>
+              <Card>
+                <Card.Img variant="top" src="../Assets/stephanie.jpg" />
+                <Card.Body>
+                  <Card.Title>Stephanie Handojo</Card.Title>
+                  <Card.Text>
+                    Prestasi perempuan kelahiran Surabaya, Jawa Timur, ini,
+                    bahkan bukan sekadar raihan di tingkat nasional, melainkan
+                    Stephanie sudah mencatatkan namanya di kancah internasional.
+                    Pada 2011, Stephanie menjadi peraih medali emas cabang
+                    olahraga renang di ajang Special Olympics World Summer Games
+                    di Athena, Yunani, untuk nomor 50 meter gaya dada. Ajang ini
+                    adalah sebuah pesta olahraga bagi anak-anak berkebutuhan
+                    khusus dari seluruh dunia.
+                  </Card.Text>
+                  <Card.Link
+                    href="https://megapolitan.kompas.com/read/2016/02/14/09362021/Stephanie.Handojo.Penyandang.Down.Syndrome.Berprestasi.Dunia?page=all"
+                    target="_blank"
+                  >
+                    Read More ...
+                  </Card.Link>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Container>
 
         {/* Video */}
+        <p className={`text-center ${styles.quotes}`}>Video</p>
         <div className={`mb-5 ${styles.bgVideo}`}>
           <Row>
             <Col lg="2"></Col>
@@ -117,7 +155,7 @@ function Home() {
                   height="100%"
                   className={`mt-4 ${styles.reactPlayer}`}
                   id="videoMotivasi"
-                  url="https://www.youtube.com/watch?v=aRVf6Sw7rcc"
+                  url="https://www.youtube.com/watch?v=aWI84egCqXM"
                 />
               </div>
             </Col>
@@ -143,52 +181,9 @@ function Home() {
             </Col>
             <Col lg="2"></Col>
           </Row>
-
-          {/* Testimonials */}
-          <p className={`mt-5 text-center ${styles.quotes}`}>Testmonials</p>
-          <Carousel variant="dark">
-            <Carousel.Item>
-              <img
-                className="d-block w-100 fluid"
-                src="../Assets/Image.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h5>First slide label</h5>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 fluid"
-                src="../Assets/Image.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h5>First slide label</h5>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 fluid"
-                src="../Assets/Image.jpg"
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h5>First slide label</h5>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
         </Container>
 
+        <ScrollToTop />
         <Footer />
       </div>
     </>

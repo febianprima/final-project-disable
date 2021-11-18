@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 
 function HeaderFeed() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar
+      bg="light"
+      expand="lg"
+      style={{ top: "0", position: "sticky", zIndex: "10" }}
+    >
       <Container>
         <Navbar.Brand href="/">Disable</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
