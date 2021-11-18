@@ -15,6 +15,7 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { freeSet } from "@coreui/icons";
+// import { GoogleLogin } from 'react-google-login';
 import Header from '../Components/Header';
 import axios from "axios";
 import Api from "../Utils/Api";
@@ -25,7 +26,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     // const config = {
     //   headers: {
     //     "X-Authorization": "blablabla",
@@ -40,6 +41,7 @@ const Login = () => {
           // localStorage.setItem("userToken", result.token);
           // localStorage.removeItem("userToken")
           navigate("/feed");
+          e.preventDefault();
         } else {
           alert(result.message);
         }
@@ -59,7 +61,7 @@ const Login = () => {
               <CCardGroup>
                 <CCard className= {`p-4 ${styles.login}`}>
                   <CCardBody>
-                    <CForm>
+                    <CForm onSubmit = {handleSubmit()}>
                       <h1>Login</h1>
                       <p className="text-medium-emphasis">
                         Masuk ke akun Anda!
@@ -88,9 +90,10 @@ const Login = () => {
                       <CRow>
                         <CCol xs={6}>
                           <CButton
+                            type="submit"
                             color="primary"
                             className={`px-4 ${styles.loginButton}`}
-                            onClick={() => handleSubmit()}
+                            onClick= {()=>handleSubmit()}
                           >
                             Login
                           </CButton>
