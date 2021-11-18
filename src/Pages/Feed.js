@@ -1,10 +1,9 @@
 import React from "react";
+import HeaderFeed from "../Components/HeaderFeed";
+import { Link } from "react-router-dom";
+
 import {
-  Navbar,
   Container,
-  Nav,
-  Form,
-  FormControl,
   Image,
   Row,
   Col,
@@ -16,61 +15,32 @@ import {
 
 function Feed() {
   return (
-    <>
-      <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href="/">Disable</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/contact">Contact</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-5"
-                aria-label="Search"
-              />
-            </Form>
-            <Image
-              className="me-3"
-              style={{ width: "20px", height: "20px" }}
-              src="../Assets/bag.png"
-            />
-            <Image
-              className="me-3"
-              style={{ width: "20px", height: "20px" }}
-              src="../Assets/bell.png"
-            />
-            <Image
-              style={{ width: "60px", height: "60px" }}
-              src="../Assets/Pic1.jpg"
-              roundedCircle
-            />
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+    <div>
+      <HeaderFeed />
       <Container>
         <Row className="mt-4">
           <Col lg="3" className="d-flex justify-content-center">
             <Card style={{ width: "18rem", height: "30rem" }}>
               <div className="d-flex justify-content-center mt-3">
-                <Image
-                  style={{ width: "100px", height: "100px" }}
-                  variant="top"
-                  src="../Assets/Image.jpg"
-                  roundedCircle
-                />
+                <Link to="/profile">
+                  <Image
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                    }}
+                    variant="top"
+                    src="../Assets/Image.jpg"
+                    roundedCircle
+                  />
+                </Link>
               </div>
               <Card.Body className="text-center">
-                <Card.Title>Muhamad Ajie Darmawan</Card.Title>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/profile"
+                >
+                  <Card.Title>Muhamad Ajie Darmawan</Card.Title>
+                </Link>
                 <Card.Text>Kerja Cerdas</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">
@@ -208,7 +178,7 @@ function Feed() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 

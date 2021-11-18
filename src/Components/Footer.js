@@ -30,9 +30,7 @@ function Footer() {
             </Link>
           </Col>
           <Col>
-            <p style={{ color: "#B4FE98" }} className="mt-5">
-              Get Started
-            </p>
+            <p className="mt-5 text-white">Get Started</p>
             <div className="d-flex flex-column">
               <Link style={{ textDecoration: "none" }} to="/">
                 Home
@@ -46,14 +44,10 @@ function Footer() {
             </div>
           </Col>
           <Col>
-            <p style={{ color: "#FBF46D" }} className="mt-5">
-              Our Company
-            </p>
+            <p className="mt-5 text-white">Our Company</p>
           </Col>
           <Col>
-            <p style={{ color: "#B983FF" }} className="mt-5">
-              Get Started
-            </p>
+            <p className="mt-5 text-white">Get Started</p>
           </Col>
         </Row>
       </Container>
