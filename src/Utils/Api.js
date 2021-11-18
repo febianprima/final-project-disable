@@ -4,5 +4,6 @@ const prod = "https://d-is-able.herokuapp.com";
 const dev = "http://localhost:8080";
 const baseUrl = prod;
 export default {
-  userLogin: baseUrl + "/api/user/login",
+    userLogin: baseUrl + "/api/user/login",
+    userRegister: baseUrl + "/api/user/register",
 };
