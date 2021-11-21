@@ -1,5 +1,6 @@
 .page {
     background-color: #34BE82;
+    forced-color-adjust: #34BE82;
 }
 
 .login {
