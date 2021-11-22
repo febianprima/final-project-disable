@@ -14,11 +14,41 @@ import {
 } from "react-bootstrap";
 import styles from "../Css/Home.module.css";
 import ReactPlayer from "react-player/youtube";
+// import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
+// import SpeechRecognition,{ useSpeechRecognition } from "react-speech-recognition";
+
+// const appId = 'fd8a2821-47ce-4549-97ba-f4dc0b08c2f9';
+// const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
+// SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
+const touch = window.Speec
 
 function Home() {
+  // const {
+  //   transcript,
+  //   listening,
+  //   resetTranscript,
+  //   browserSupportsSpeechRecognition
+  // } = useSpeechRecognition();
+
+  // const startListening = () => SpeechRecognition.startListening({ language: "id", continuous: true });
+
+  // if (!browserSupportsSpeechRecognition){
+  //   return <span>Browser doesn't support speech recognition</span>
+  // }
+
   return (
     <>
       <Header />
+      {/* <div>
+      <p>Microphone: {listening ? 'on' : 'off'}</p>
+      <button
+        onTouchStart={startListening}
+        onMouseDown={startListening}
+        onTouchEnd={SpeechRecognition.stopListening}
+        onMouseUp={SpeechRecognition.stopListening}
+      >Hold to talk</button>
+      <p>{transcript}</p>
+      </div> */}
 
       <div className={styles.warnaHero}>
         <Container>

@@ -3,7 +3,6 @@ import { Navbar, Container, Form, FormControl, Image, NavLink, NavDropdown, NavI
 import { useNavigate } from "react-router-dom";
 import { freeSet } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
-import styles from "../Css/HeaderFeed.module.css";
 
 function HeaderFeed() {
   let user = JSON.parse(localStorage.getItem('userToken'))

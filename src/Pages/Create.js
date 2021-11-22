@@ -41,9 +41,11 @@ const Create = () => {
     //     "X-Authorization": "blablabla",
     //   },
     // };
+    const userID = JSON.parse(localStorage.getItem('userData'))
+
     await axios
       .post(Api.createProfile, {
-          userID: 1,
+          userID: userID.id,
           firstName, 
           lastName,
           status,

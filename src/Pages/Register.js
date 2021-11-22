@@ -34,8 +34,7 @@ const Register = () => {
           const result = res.data;
           console.log(result);
           if(res.status === 201){
-            localStorage.setItem("userToken", result.token);
-            localStorage.removeItem("userToken");
+            localStorage.setItem("userData", JSON.stringify(result.data));
             navigate("/create")
             e.preventDefault()
           }else{
