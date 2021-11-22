@@ -17,13 +17,14 @@ import axios from "axios";
 import Api from "../Utils/Api";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPass, setRepeatPass] = useState("");
 
-  const handleSubmit = async () => {
-    if (password !== repeatPass) {
+  const handleSubmit = async (e) =>{
+    if(password !== repeatPass){
       console.log("Password tidak sama!");
     } else {
       await axios
@@ -31,7 +32,14 @@ const Register = () => {
         .then((res) => {
           const result = res.data;
           console.log(result);
-          alert(result.message);
+
+          if(res.status === 201){
+            localStorage.setItem("userData", JSON.stringify(result.data));
+            navigate("/create")
+            e.preventDefault()
+          }else{
+            alert(result.message);
+          }
         })
         .catch((err) => {
           console.log(err);

@@ -37,8 +37,8 @@ const Login = () => {
         const result = res.data;
         console.log(result)
         if (res.status === 200) {
-          localStorage.setItem("userToken", result.token);
-          localStorage.removeItem("userToken");
+          localStorage.setItem("userData", JSON.stringify(result.data));
+          // localStorage.removeItem("userToken");
           navigate("/feed");
           e.preventDefault();
         } else {

@@ -16,11 +16,11 @@ import styles from "../Css/Home.module.css";
 import ReactPlayer from "react-player/youtube";
 import { CImage } from "@coreui/react";
 
+
 function Home() {
   return (
     <>
       <Header />
-
       <div className={styles.warnaHero}>
         <Container>
           {/* Hero Section */}
