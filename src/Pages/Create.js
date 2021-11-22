@@ -43,6 +43,7 @@ const Create = () => {
     // };
     await axios
       .post(Api.createProfile, {
+          userID: 1,
           firstName, 
           lastName,
           status,
@@ -72,7 +73,7 @@ const Create = () => {
           <CCol md={9} lg={7} xl={6}>
             <CCard className="mx-4">
               <CCardBody className="p-4">
-                <CForm onSubmit = {handleSubmit()}>
+                <CForm>
                   <h1 className='mb-3'>Beritahu kami tentang Anda</h1>
                   <div className="mb-3">
                     <CFormLabel htmlFor='firstname'>Nama Depan</CFormLabel>
@@ -214,7 +215,7 @@ const Create = () => {
                     </CInputGroup>
                   </div>
                   <div className="d-grid">
-                    <CButton color="success" type='submit' onClick={() => handleSubmit()}>
+                    <CButton color="success" onClick={() => handleSubmit()}>
                       Selesai
                     </CButton>
                   </div>

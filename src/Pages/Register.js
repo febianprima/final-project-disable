@@ -14,16 +14,17 @@ import {
 import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser } from "@coreui/icons";
 import axios from "axios";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import Api from "../Utils/Api";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPass, setRepeatPass] = useState("");
-
-  const handleSubmit = async () =>{
+  
+  const handleSubmit = async (e) =>{
     if(password !== repeatPass){
       console.log("Password tidak sama!");
     }else{
@@ -31,8 +32,15 @@ const Register = () => {
         .post(Api.userRegister, {username, email, password})
         .then((res) => {
           const result = res.data;
-          console.log(result)
-          alert(result.message);
+          console.log(result);
+          if(res.status === 201){
+            localStorage.setItem("userToken", result.token);
+            localStorage.removeItem("userToken");
+            navigate("/create")
+            e.preventDefault()
+          }else{
+            alert(result.message);
+          }
         })
         .catch((err) => {
           console.log(err);
