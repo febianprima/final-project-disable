@@ -3,6 +3,7 @@ import { Navbar, Container, Form, FormControl, Image, NavLink, NavDropdown, NavI
 import { useNavigate } from "react-router-dom";
 import { freeSet } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
+import styles from "../Css/HeaderFeed.module.css";
 
 function HeaderFeed() {
   let user = JSON.parse(localStorage.getItem('userToken'))
@@ -24,7 +25,7 @@ function HeaderFeed() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">
             <Form className="d-flex ms-2">
-              <CIcon icon={freeSet.cilSearch} style={{width:'22px', color:'black'}} />
+            <CIcon icon={freeSet.cilSearch} style={{width:'22px', color:'black'}} />
               <FormControl
                 type="search"
                 placeholder="Search"
