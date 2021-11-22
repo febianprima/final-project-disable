@@ -10,6 +10,8 @@ import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import Feed from "../Pages/Feed";
 import Profile from "../Pages/Profile";
+import Create from "../Pages/Create";
+import Chat from "../Pages/ChatRoom";
 
 function App() {
   const client = new ApolloClient({
@@ -31,6 +33,8 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="feed" element={<Feed />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="create" element={<Create />} />
+          <Route path="chat" element={<Chat />} />
         </Routes>
       </ApolloProvider>
     </div>

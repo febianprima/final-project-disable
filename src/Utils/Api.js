@@ -6,4 +6,5 @@ const baseUrl = prod;
 export default {
     userLogin: baseUrl + "/api/user/login",
     userRegister: baseUrl + "/api/user/register",
+    createProfile: baseUrl + "/api/profile"
 };

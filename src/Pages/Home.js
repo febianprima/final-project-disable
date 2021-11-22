@@ -14,12 +14,13 @@ import {
 } from "react-bootstrap";
 import styles from "../Css/Home.module.css";
 import ReactPlayer from "react-player/youtube";
+import { CImage } from "@coreui/react";
+
 
 function Home() {
   return (
     <>
       <Header />
-
       <div className={styles.warnaHero}>
         <Container>
           {/* Hero Section */}
@@ -170,13 +171,39 @@ function Home() {
             <Col lg="8">
               <div className="mb-5 text-center">
                 <p className={styles.quotes}>Quotes</p>
+              </div>
+              <div className="clearfix">
+                <CImage
+                  className="me-3"
+                  align="start"
+                  rounded
+                  src="../Assets/gusdur.jpg"
+                  width={200}
+                  height={200}
+                />
                 <p>
-                  "My advice to other disable people would be, concentrate on
-                  things your disability doesn’t prevent you doing well, and
-                  don’t regret the things it interferes with. Don’t be disabled
-                  in spirit as well as physically."
+                  "Memuliakan manusia berarti memuliakan penciptanya.
+                  Merendahkan manusia berarti merendahkan dan menistakan
+                  penciptanya."
                 </p>
-                <p className="mt-5">Stephen Hawking</p>
+                <p className="mt-5">KH Abdurrahman Wahid</p>
+              </div>
+              <div className="clearfix mt-5">
+                <CImage
+                  className="me-3"
+                  align="start"
+                  rounded
+                  src="../Assets/nick.jpg"
+                  width={200}
+                  height={200}
+                />
+                <p>
+                  . "Saya secara resmi cacat, tetapi saya benar-benar diaktifkan
+                  karena kekurangan anggota tubuh saya. Tantangan unik saya
+                  telah membuka peluang untuk menjangkau begitu banyak orang
+                  yang membutuhkan."
+                </p>
+                <p className="mt-5">Nick Vujicic</p>
               </div>
             </Col>
             <Col lg="2"></Col>
