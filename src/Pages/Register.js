@@ -14,7 +14,6 @@ import {
 import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser } from "@coreui/icons";
 import axios from "axios";
-import { Navigate } from "react-router";
 import Api from "../Utils/Api";
 
 const Register = () => {
@@ -23,15 +22,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [repeatPass, setRepeatPass] = useState("");
 
-  const handleSubmit = async () =>{
-    if(password !== repeatPass){
+  const handleSubmit = async () => {
+    if (password !== repeatPass) {
       console.log("Password tidak sama!");
-    }else{
+    } else {
       await axios
-        .post(Api.userRegister, {username, email, password})
+        .post(Api.userRegister, { username, email, password })
         .then((res) => {
           const result = res.data;
-          console.log(result)
+          console.log(result);
           alert(result.message);
         })
         .catch((err) => {
@@ -39,7 +38,7 @@ const Register = () => {
         });
     }
   };
-  
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -58,14 +57,13 @@ const Register = () => {
                       placeholder="Username"
                       autoComplete="username"
                       onChange={(e) => setUsername(e.target.value)}
-                      
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormInput 
-                      placeholder="Email" 
-                      autoComplete="email" 
+                    <CFormInput
+                      placeholder="Email"
+                      autoComplete="email"
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </CInputGroup>

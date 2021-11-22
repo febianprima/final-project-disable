@@ -8,7 +8,7 @@ function Footer() {
     <div className={`mt-5 ${styles.warnaBg}`}>
       <Container>
         <Row>
-          <Col lg="3">
+          <Col>
             <p className="mt-5 text-white">Disable</p>
             <Link to="/">
               <Image className={styles.icImage} src="../Assets/ic_fb.png" />
@@ -42,12 +42,6 @@ function Footer() {
                 Contact
               </Link>
             </div>
-          </Col>
-          <Col>
-            <p className="mt-5 text-white">Our Company</p>
-          </Col>
-          <Col>
-            <p className="mt-5 text-white">Get Started</p>
           </Col>
         </Row>
       </Container>
