@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Navbar, Container, Nav, Button, Image } from "react-bootstrap";
 import styles from "../Css/Header.module.css";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function Header() {
       <Navbar className={styles.warnaNav} expand="lg">
         <Container>
           <Navbar.Brand href="/" className="text-white">
-            Disable
+            <Image style={{width: '15vw'}} src="../Assets/logo.png" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

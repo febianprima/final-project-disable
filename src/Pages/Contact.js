@@ -87,7 +87,7 @@ function About() {
                 <Form.Label>
                   Full Name <span>*</span>
                 </Form.Label>
-                <Form.Control type="text" placeholder="Winda Pramesti" />
+                <Form.Control type="text" placeholder="Your Name" />
               </Form.Group>
               <Form.Group className="mb-4">
                 <Form.Label>

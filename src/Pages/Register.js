@@ -21,6 +21,7 @@ import Api from "../Utils/Api";
 import styles from '../Css/Login.module.css';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,26 +33,32 @@ const Register = () => {
     if (form.checkValidity() === false) {
       event.preventDefault()
       event.stopPropagation()
-    }
-    else{
-      if(password !== repeatPass){
-        console.log("Password tidak sama!");
-      }else{
-        await axios
-          .post(Api.userRegister, {username, email, password})
-          .then((res) => {
-            const result = res.data;
-            console.log(result)
+    }else{
+    if(password !== repeatPass){
+      console.log("Password tidak sama!");
+    } else {
+      await axios
+        .post(Api.userRegister, { username, email, password })
+        .then((res) => {
+          const result = res.data;
+          console.log(result);
+
+          if(res.status === 201){
+            localStorage.setItem("userData", JSON.stringify(result.data));
+            navigate("/create")
+            e.preventDefault()
+          }else{
             alert(result.message);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       }
     }
     setValidated(true)
   };
-  
+
   return (
     <>
       <Header />

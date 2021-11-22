@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   CButton,
   CCard,
   CCardBody,
-  CCardGroup,
   CCol,
   CContainer,
   CForm,
@@ -12,18 +11,21 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
+  CImage
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
+import { freeSet } from "@coreui/icons";
+import Header from '../Components/Header';
 import axios from "axios";
 import Api from "../Utils/Api";
+import styles from '../Css/Login.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     // const config = {
     //   headers: {
     //     "X-Authorization": "blablabla",
@@ -35,9 +37,10 @@ const Login = () => {
         const result = res.data;
         console.log(result)
         if (res.status === 200) {
-          // localStorage.setItem("userToken", result.token);
-          // localStorage.removeItem("userToken")
+          localStorage.setItem("userData", JSON.stringify(result.data));
+          // localStorage.removeItem("userToken");
           navigate("/feed");
+          e.preventDefault();
         } else {
           alert(result.message);
         }
@@ -48,21 +51,32 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md={8}>
-            <CCardGroup>
-              <CCard className="p-4">
+    <>
+      <Header />
+      <div className={`${styles.page} min-vh-100 d-flex flex-row`} style={{textAlign:'center'}}>
+        <CContainer>
+          <CRow>
+            <CCol sm={6} className='mt-5'>
+              <CRow>
+                <h1 className='mb-4' style={{color:'white', fontWeight:'bolder'}}>
+                  Selamat Datang!
+                </h1>
+              </CRow>
+              <CRow>
+                <CImage className= 'mt-4 center' align='center' style={{width: '80vw'}} src='../Assets/welcome.png' />
+              </CRow>
+            </CCol>
+        
+            <CCol sm={6} className="justify-content-center mt-2">
+              <CCard className= {`p-4 ${styles.login}`}>
                 <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <p className="text-medium-emphasis">
-                      Sign In to your account
-                    </p>
+                  <CForm onSubmit = {handleSubmit()}>
+                    <h2 className="text-medium-emphasis mb-3">
+                      Masuk ke akun Anda!
+                    </h2>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
-                        <CIcon icon={cilUser} />
+                        <CIcon content={freeSet.cilUser} />
                       </CInputGroupText>
                       <CFormInput
                         placeholder="Username"
@@ -72,7 +86,7 @@ const Login = () => {
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
+                        <CIcon icon={freeSet.cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
                         type="password"
@@ -84,52 +98,43 @@ const Login = () => {
                     <CRow>
                       <CCol xs={6}>
                         <CButton
-                          color="primary"
-                          className="px-4"
-                          onClick={() => handleSubmit()}
+                          type="submit"
+                          color="success"
+                          className={`px-4 ${styles.loginButton}`}
+                          onClick= {()=>handleSubmit()}
                         >
                           Login
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
-                          Forgot password?
+                          Lupa password?
                         </CButton>
                       </CCol>
                     </CRow>
                   </CForm>
-                </CCardBody>
-              </CCard>
-              <CCard
-                className="text-white bg-primary py-5"
-                style={{ width: "44%" }}
-              >
-                <CCardBody className="text-center">
                   <div>
-                    <h2>Sign up</h2>
+                  <CImage className= 'center mt-3 mb-3' style={{width: '375px', height: '5px'}} src='../Assets/divider.png' />
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
+                      Belum punya akun?
                     </p>
                     <Link to="/register">
                       <CButton
-                        color="primary"
-                        className="mt-3"
+                        color="success"
                         active
                         tabIndex={-1}
                       >
-                        Register Now!
+                        Daftar sekarang
                       </CButton>
                     </Link>
                   </div>
                 </CCardBody>
               </CCard>
-            </CCardGroup>
-          </CCol>
-        </CRow>
-      </CContainer>
-    </div>
+            </CCol>
+          </CRow>
+        </CContainer>
+      </div>
+    </>
   );
 };
 
