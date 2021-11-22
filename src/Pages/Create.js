@@ -11,18 +11,16 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-  CImage,
   CFormSelect,
   CFormLabel,
-  CFormText
+  CFormText,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { freeSet } from "@coreui/icons";
 import axios from "axios";
 import Api from "../Utils/Api";
-import HeaderFeed from "../Components/HeaderFeed";
 
-React.icons = {...freeSet};
+React.icons = { ...freeSet };
 
 const Create = () => {
   const navigate = useNavigate();
@@ -59,14 +57,14 @@ const Create = () => {
         const result = res.data;
         console.log(result);
         alert(result.message);
-        navigate('/feed');
+        navigate("/feed");
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  return(
+  return (
     <>
     {/* <HeaderFeed /> */}
     <div className="min-vh-100 d-flex flex-row align-items-center" style={{backgroundColor:'seagreen'}}>

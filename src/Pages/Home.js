@@ -14,42 +14,13 @@ import {
 } from "react-bootstrap";
 import styles from "../Css/Home.module.css";
 import ReactPlayer from "react-player/youtube";
-// import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
-// import SpeechRecognition,{ useSpeechRecognition } from "react-speech-recognition";
+import { CImage } from "@coreui/react";
 
-// const appId = 'fd8a2821-47ce-4549-97ba-f4dc0b08c2f9';
-// const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
-// SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
-const touch = window.Speec
 
 function Home() {
-  // const {
-  //   transcript,
-  //   listening,
-  //   resetTranscript,
-  //   browserSupportsSpeechRecognition
-  // } = useSpeechRecognition();
-
-  // const startListening = () => SpeechRecognition.startListening({ language: "id", continuous: true });
-
-  // if (!browserSupportsSpeechRecognition){
-  //   return <span>Browser doesn't support speech recognition</span>
-  // }
-
   return (
     <>
       <Header />
-      {/* <div>
-      <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button
-        onTouchStart={startListening}
-        onMouseDown={startListening}
-        onTouchEnd={SpeechRecognition.stopListening}
-        onMouseUp={SpeechRecognition.stopListening}
-      >Hold to talk</button>
-      <p>{transcript}</p>
-      </div> */}
-
       <div className={styles.warnaHero}>
         <Container>
           {/* Hero Section */}
@@ -200,13 +171,39 @@ function Home() {
             <Col lg="8">
               <div className="mb-5 text-center">
                 <p className={styles.quotes}>Quotes</p>
+              </div>
+              <div className="clearfix">
+                <CImage
+                  className="me-3"
+                  align="start"
+                  rounded
+                  src="../Assets/gusdur.jpg"
+                  width={200}
+                  height={200}
+                />
                 <p>
-                  "My advice to other disable people would be, concentrate on
-                  things your disability doesn’t prevent you doing well, and
-                  don’t regret the things it interferes with. Don’t be disabled
-                  in spirit as well as physically."
+                  "Memuliakan manusia berarti memuliakan penciptanya.
+                  Merendahkan manusia berarti merendahkan dan menistakan
+                  penciptanya."
                 </p>
-                <p className="mt-5">Stephen Hawking</p>
+                <p className="mt-5">KH Abdurrahman Wahid</p>
+              </div>
+              <div className="clearfix mt-5">
+                <CImage
+                  className="me-3"
+                  align="start"
+                  rounded
+                  src="../Assets/nick.jpg"
+                  width={200}
+                  height={200}
+                />
+                <p>
+                  . "Saya secara resmi cacat, tetapi saya benar-benar diaktifkan
+                  karena kekurangan anggota tubuh saya. Tantangan unik saya
+                  telah membuka peluang untuk menjangkau begitu banyak orang
+                  yang membutuhkan."
+                </p>
+                <p className="mt-5">Nick Vujicic</p>
               </div>
             </Col>
             <Col lg="2"></Col>
