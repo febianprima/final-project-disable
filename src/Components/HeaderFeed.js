@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar, Container, Form, FormControl, Image, NavLink, NavDropdown, NavItem, Nav } from "react-bootstrap";
+import { Navbar, Container, Form, FormControl, Image, NavLink, NavDropdown, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { freeSet } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
 
 function HeaderFeed() {
-  let user = JSON.parse(localStorage.getItem('userToken'))
+  let user = JSON.parse(localStorage.getItem('userData'))
   const navigate = useNavigate();
   const logOut =()=>{
     localStorage.clear();

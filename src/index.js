@@ -3,10 +3,21 @@ import ReactDOM from "react-dom";
 import Routes from "./Routes/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: "https://d-is-able.hasura.app/v1/graphql",
+  headers: {
+    "x-hasura-admin-secret": `WT9sL6pGzoGhrsimm001JI0rMrB37d901kDFnMX5yuKWKmleLnZz2nQjrgiq7IcQ`,
+  },
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <ApolloProvider client={client}>
     <Routes />
+    </ApolloProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -71,7 +71,6 @@ const Register = () => {
                   <CForm
                     noValidate
                     validated={validated}
-                    onSubmit={handleSubmit}
                   >
                     <h1>Register</h1>
                     <p className="text-medium-emphasis">Create your account</p>
@@ -134,7 +133,7 @@ const Register = () => {
                       <CFormFeedback invalid>Please repeat the password.</CFormFeedback>
                     </CInputGroup>
                     <div className="d-grid">
-                      <CButton color="success" type="submit">
+                      <CButton color="success" onClick={(event)=>handleSubmit(event)}>
                         Create Account
                       </CButton>
                     </div>

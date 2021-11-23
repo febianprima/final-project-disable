@@ -43,7 +43,8 @@ const Login = () => {
           console.log(result)
           if (res.status === 200) {
             localStorage.setItem("userData", JSON.stringify(result.data));
-            navigate("/feed");
+            const user = JSON.parse(localStorage.getItem('userData'))
+            navigate(`/feed/${user.id}`);
             event.preventDefault();
           } else {
             alert(result.message);
@@ -79,7 +80,6 @@ const Login = () => {
                 <CCardBody>
                   <CForm noValidate
                     validated={validated}
-                    onSubmit={handleSubmit}
                   >
                     <h2 className="text-medium-emphasis mb-3">
                       Masuk ke akun Anda!
@@ -116,10 +116,9 @@ const Login = () => {
                     <CRow>
                       <CCol xs={6}>
                         <CButton
-                          type="submit"
                           color="success"
                           className={`px-4 ${styles.loginButton}`}
-                          onClick= {()=>handleSubmit()}
+                          onClick= {(event)=>handleSubmit(event)}
                         >
                           Login
                         </CButton>

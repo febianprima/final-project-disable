@@ -41,11 +41,11 @@ const Create = () => {
       event.preventDefault()
       event.stopPropagation()
     }else{
-      const userID = JSON.parse(localStorage.getItem('userData'))
+      const user = JSON.parse(localStorage.getItem('userData'))
 
       await axios
         .post(Api.createProfile, {
-          userID: userID.id,
+          userID: user.id,
           firstName, 
           lastName,
           status,
@@ -85,7 +85,6 @@ const Create = () => {
                 <CForm
                   noValidate
                   validated={validated}
-                  onSubmit={handleSubmit}
                 >
                   <h1 className='mb-3'>Beritahu kami tentang Anda</h1>
                   <div className="mb-3">
@@ -232,7 +231,7 @@ const Create = () => {
                     </CInputGroup>
                   </div>
                   <div className="d-grid">
-                    <CButton color="success" type="submit" onClick={() => handleSubmit()}>
+                    <CButton color="success" onClick={(event) => handleSubmit(event)}>
                       Selesai
                     </CButton>
                   </div>

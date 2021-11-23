@@ -1,6 +1,8 @@
 import React from "react";
 import HeaderFeed from "../Components/HeaderFeed";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_FEED } from "../Utils/Query"
 
 import {
   Container,
@@ -14,6 +16,17 @@ import {
 } from "react-bootstrap";
 
 function Feed() {
+  const user = JSON.parse(localStorage.getItem('userData'));
+  const navigate = useNavigate();
+  
+  if (!user) {
+    navigate('/login')
+  }else{
+    const userID = user.id;
+  }
+
+  const { loading, error, data } = useQuery(GET_FEED);
+
   return (
     <div>
       <HeaderFeed />

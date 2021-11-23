@@ -1,9 +1,26 @@
 import React from "react";
 import { Container, Row, Col, Card, ListGroup, Image } from "react-bootstrap";
 import HeaderFeed from "../Components/HeaderFeed";
-import { Link } from "react-router-dom";
+import { GET_PROFILE } from '../Utils/Query'
+import { Link, useNavigate } from "react-router-dom";
+import { useQuery } from '@apollo/client';
 
-function Profile() {
+function Profile(props) {
+  const user = JSON.parse(localStorage.getItem('userData'));
+  const navigate = useNavigate();
+  
+  if (!user) {
+    navigate('/login')
+  } else{
+    const userID = user.id;
+  }
+
+  const id = user.id;
+  const { loading, error, data } = useQuery(GET_PROFILE, {
+    variables: { id: id}
+  });
+  console.log(data)
+
   return (
     <div>
       <HeaderFeed />
@@ -34,12 +51,12 @@ function Profile() {
               />
               <Row className="ms-3 mt-3">
                 <Col lg="8">
-                  <p className="fw-bold fs-5">Ajie Darmawan</p>
-                  <p>Kerja Cerdas</p>
-                  <p>Jawa Barat, Indonesia. Informasi Kontak</p>
-                  <p>100 Koneksi</p>
+                  <p className="fw-bold fs-5">{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</p>
+                  <p>@{data.users[0].username}</p>
+                  <p>{data.users[0].profile[0].status}</p>
+                  <p>{data.users[0].contact.length} Koneksi</p>
                 </Col>
-                <Col>
+                {/* <Col>
                   <div className="mb-3">
                     <Image
                       style={{ width: "50px" }}
@@ -54,15 +71,14 @@ function Profile() {
                     />
                     <span className="ms-3">Cras justo odio</span>
                   </div>
-                </Col>
+                </Col> */}
               </Row>
             </Card>
             <Card className="mt-3">
               <Card.Body>
                 <Card.Title>Biodata</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {data.users[0].profile[0].biography}
                 </Card.Text>
               </Card.Body>
             </Card>
