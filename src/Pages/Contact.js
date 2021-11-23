@@ -25,7 +25,7 @@ function About() {
               <br></br>
               <Image
                 className={`m-2 ${styles.socialProfile}`}
-                src="../assets/phone.png"
+                src={process.env.PUBLIC_URL + "/assets/phone.png"}
                 alt="phone"
               />
               <span>+62 8952 2767 180</span>
@@ -35,7 +35,7 @@ function About() {
               <br></br>
               <Image
                 className={`m-2 ${styles.socialProfile}`}
-                src="../assets/envelope.png"
+                src={process.env.PUBLIC_URL + "/assets/envelope.png"}
                 alt="email"
               />
               <span>info@disable.id</span>
@@ -45,7 +45,7 @@ function About() {
               <br></br>
               <Image
                 className={`m-2 ${styles.socialProfile}`}
-                src="../assets/browser.png"
+                src={process.env.PUBLIC_URL + "/assets/browser.png"}
                 alt="website"
               />
               <span>https://www.disableIsAvailable.id/</span>
@@ -55,22 +55,22 @@ function About() {
             <div className="mb-5">
               <Image
                 className={`m-1 ${styles.socialProfile}`}
-                src="../assets/facebook.png"
+                src={process.env.PUBLIC_URL + "/assets/facebook.png"}
                 alt="facebook"
               />
               <Image
                 className={`m-1 ${styles.socialProfile}`}
-                src="../assets/twitter.png"
+                src={process.env.PUBLIC_URL + "/assets/twitter.png"}
                 alt="twitter"
               />
               <Image
                 className={`m-1 ${styles.socialProfile}`}
-                src="../assets/instagram.png"
+                src={process.env.PUBLIC_URL + "/assets/instagram.png"}
                 alt="instagram"
               />
               <Image
                 className={`m-1 ${styles.socialProfile}`}
-                src="../assets/linkedin.png"
+                src={process.env.PUBLIC_URL + "/assets/linkedin.png"}
                 alt="linkedin"
               />
             </div>
@@ -119,7 +119,7 @@ function About() {
               <span>
                 <Image
                   className={styles.imgButton}
-                  src="../assets/send-mail.png"
+                  src={process.env.PUBLIC_URL + "/assets/send-mail.png"}
                 />
               </span>{" "}
               Send Message

@@ -6,10 +6,13 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <Navbar className={styles.warnaNav} expand="lg">
+      <Navbar className={styles.warnaNav}
+       expand="lg"
+       style={{ top: "0", position: "sticky", zIndex: "10", backgroundColor:'#34BE82' }}
+      >
         <Container>
           <Navbar.Brand href="/" className="text-white">
-            <Image style={{width: '15vw'}} src="../Assets/logo.png" />
+            <Image style={{width: '15vw'}} src={process.env.PUBLIC_URL + "/Assets/logo.png"} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

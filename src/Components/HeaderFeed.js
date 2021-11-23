@@ -18,7 +18,7 @@ function HeaderFeed() {
     >
       <Container>
         <Navbar.Brand href="/feed">
-        <Image style={{width: '40px'}} src="../Assets/icon.png" />
+        <Image style={{width: '40px'}} src={process.env.PUBLIC_URL + "/Assets/icon.png"} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -38,7 +38,7 @@ function HeaderFeed() {
         <NavLink href='/feed'>
           <Image
             style={{ width: "20px", height: "20px" }}
-            src="../Assets/home.png"
+            src={process.env.PUBLIC_URL + "/Assets/home.png"}
             href='/feed'
           />
           
@@ -46,32 +46,32 @@ function HeaderFeed() {
         <NavLink href='/contact'>
         <Image
           style={{ width: "25px", height: "25px" }}
-          src="../Assets/user.png"
+          src={process.env.PUBLIC_URL + "/Assets/user.png"}
         />
         </NavLink>
         <NavLink href='/job'>
         <Image
           style={{ width: "20px", height: "20px" }}
-          src="../Assets/bag.png"
+          src={process.env.PUBLIC_URL + "/Assets/bag.png"}
         />
         </NavLink>
         <NavLink href='/notification'>
         <Image
           style={{ width: "20px", height: "20px" }}
-          src="../Assets/bell.png"
+          src={process.env.PUBLIC_URL + "/Assets/bell.png"}
         />
         </NavLink>
         <NavLink href='/chat'>
         <Image
           className="ms-auto me-3"
           style={{ width: "25px", height: "25px" }}
-          src="../Assets/chat.png"
+          src={process.env.PUBLIC_URL + "/Assets/chat.png"}
         />
         </NavLink>
         <NavDropdown title={ <Image
             style={{ width: '40px' }}
             className='text-primary my-auto'
-            src="../Assets/Pic1.jpg"
+            src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
             roundedCircle
           />}>
           <NavDropdown.Item href='/profile'>Profil Anda</NavDropdown.Item>

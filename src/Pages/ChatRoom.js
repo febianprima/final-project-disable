@@ -12,7 +12,7 @@ function ChatRoom() {
               <Card.Body>
                 <div>
                   <Image
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                     alt="avatar"
                     roundedCircle
                     style={{ width: "15%" }}
@@ -22,7 +22,7 @@ function ChatRoom() {
                 </div>
                 <div>
                   <Image
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                     alt="avatar"
                     roundedCircle
                     style={{ width: "15%" }}
@@ -32,7 +32,7 @@ function ChatRoom() {
                 </div>
                 <div>
                   <Image
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                     alt="avatar"
                     roundedCircle
                     style={{ width: "15%" }}
@@ -48,7 +48,7 @@ function ChatRoom() {
               <Card.Header>
                 <div>
                   <Image
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                     alt="avatar"
                     roundedCircle
                     style={{ width: "15%" }}
@@ -109,7 +109,7 @@ function ChatRoom() {
                 <CInputGroup className="mb-3">
                   <Image
                     className="me-3"
-                    src="../Assets/send.png"
+                    src={process.env.PUBLIC_URL + "/Assets/send.png"}
                     style={{ width: "40px" }}
                   />
                   <CFormInput

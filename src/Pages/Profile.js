@@ -19,7 +19,7 @@ function Profile() {
                   objectFit: "cover",
                   objectPosition: "50% 85%",
                 }}
-                src="../Assets/noMan.jpg"
+                src={process.env.PUBLIC_URL + "/Assets/noMan.jpg"}
               />
               <Image
                 variant="top"
@@ -29,7 +29,7 @@ function Profile() {
                   height: "180px",
                   position: "absolute",
                 }}
-                src="../Assets/Pic1.jpg"
+                src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                 roundedCircle
               />
               <Row className="ms-3 mt-3">
@@ -43,14 +43,14 @@ function Profile() {
                   <div className="mb-3">
                     <Image
                       style={{ width: "50px" }}
-                      src="../Assets/Image.jpg"
+                      src={process.env.PUBLIC_URL + "/Assets/Image.jpg"}
                     />
                     <span className="ms-3">Cras justo odio</span>
                   </div>
                   <div>
                     <Image
                       style={{ width: "50px" }}
-                      src="../Assets/Image.jpg"
+                      src={process.env.PUBLIC_URL + "/Assets/Image.jpg"}
                     />
                     <span className="ms-3">Cras justo odio</span>
                   </div>
@@ -96,15 +96,15 @@ function Profile() {
               </Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <Image style={{ width: "100px" }} src="../Assets/Image.jpg" />
+                  <Image style={{ width: "100px" }} src={process.env.PUBLIC_URL + "/Assets/Image.jpg"} />
                   <span className="ms-3">Cras justo odio</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <Image style={{ width: "100px" }} src="../Assets/Image.jpg" />
+                  <Image style={{ width: "100px" }} src={process.env.PUBLIC_URL + "/Assets/Image.jpg"} />
                   <span className="ms-3">Cras justo odio</span>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <Image style={{ width: "100px" }} src="../Assets/Image.jpg" />
+                  <Image style={{ width: "100px" }} src={process.env.PUBLIC_URL + "/Assets/Image.jpg"} />
                   <span className="ms-3">Cras justo odio</span>
                 </ListGroup.Item>
                 <ListGroup.Item className="text-center fw-bold">

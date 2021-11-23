@@ -38,7 +38,7 @@ function Home() {
               <Button href="#videoMotivasi">Watch Video</Button>
             </Col>
             <Col md lg="8" className="mt-3">
-              <Image className={styles.imgHero} src="../Assets/ImageHero.png" />
+              <Image className={styles.imgHero} src={process.env.PUBLIC_URL +"/Assets/ImageHero.png"} />
             </Col>
           </Row>
 
@@ -51,7 +51,7 @@ function Home() {
                 <Card.Img
                   className={styles.imgFeature}
                   variant="top"
-                  src="../Assets/voice-recognition.png"
+                  src={process.env.PUBLIC_URL + "/Assets/voice-recognition.png"}
                 />
               </div>
               <Card.Body>
@@ -65,7 +65,7 @@ function Home() {
                 <Card.Img
                   className={styles.imgFeature}
                   variant="top"
-                  src="../Assets/hr-manager.png"
+                  src={process.env.PUBLIC_URL + "/Assets/hr-manager.png"}
                 />
               </div>
               <Card.Body>
@@ -81,7 +81,7 @@ function Home() {
                 <Card.Img
                   className={styles.imgFeature}
                   variant="top"
-                  src="../Assets/disabled-person.png"
+                  src={process.env.PUBLIC_URL + "/Assets/disabled-person.png"}
                 />
               </div>
               <Card.Body>
@@ -95,7 +95,7 @@ function Home() {
           <Row xs={1} md={2} className="mb-5 g-4">
             <Col>
               <Card>
-                <Card.Img variant="top" src="../Assets/michael-anthony.jpg" />
+                <Card.Img variant="top" src={process.env.PUBLIC_URL + "/Assets/michael-anthony.jpg"} />
                 <Card.Body>
                   <Card.Title>Michael Anthony</Card.Title>
                   <Card.Text>
@@ -118,7 +118,7 @@ function Home() {
             </Col>
             <Col>
               <Card>
-                <Card.Img variant="top" src="../Assets/stephanie.jpg" />
+                <Card.Img variant="top" src={process.env.PUBLIC_URL + "/Assets/stephanie.jpg"} />
                 <Card.Body>
                   <Card.Title>Stephanie Handojo</Card.Title>
                   <Card.Text>
@@ -177,7 +177,7 @@ function Home() {
                   className="me-3"
                   align="start"
                   rounded
-                  src="../Assets/gusdur.jpg"
+                  src={process.env.PUBLIC_URL + "/Assets/gusdur.jpg"}
                   width={200}
                   height={200}
                 />
@@ -193,7 +193,7 @@ function Home() {
                   className="me-3"
                   align="start"
                   rounded
-                  src="../Assets/nick.jpg"
+                  src={process.env.PUBLIC_URL + "/Assets/nick.jpg"}
                   width={200}
                   height={200}
                 />

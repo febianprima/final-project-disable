@@ -13,10 +13,10 @@ import {
   CFormFeedback,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
+import { cilAt, cilLockLocked, cilUser } from "@coreui/icons";
 import axios from "axios";
 import Header from '../Components/Header';
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
 import Api from "../Utils/Api";
 import styles from '../Css/Login.module.css';
 
@@ -46,7 +46,7 @@ const Register = () => {
           if(res.status === 201){
             localStorage.setItem("userData", JSON.stringify(result.data));
             navigate("/create")
-            e.preventDefault()
+            event.preventDefault()
           }else{
             alert(result.message);
           }
@@ -76,52 +76,58 @@ const Register = () => {
                     <h1>Register</h1>
                     <p className="text-medium-emphasis">Create your account</p>
                     <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon icon={cilUser} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
                         placeholder="Username"
                         autoComplete="username"
                         onChange={(e) => setUsername(e.target.value)}
+                        style={{borderColor:'green'}}
                         required
                       />
                       <CFormFeedback valid>Looks good!</CFormFeedback>
                       <CFormFeedback invalid>Please choose an username.</CFormFeedback>
                     </CInputGroup>
                     <CInputGroup className="mb-3">
-                      <CInputGroupText>@</CInputGroupText>
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon icon={cilAt} style={{width:'20px', color:'white'}} />
+                      </CInputGroupText>
                       <CFormInput 
                         placeholder="Email" 
                         autoComplete="email" 
                         onChange={(e) => setEmail(e.target.value)}
+                        style={{borderColor:'green'}}
                         required
                       />
                       <CFormFeedback valid>Looks good!</CFormFeedback>
                       <CFormFeedback invalid>Please choose an email.</CFormFeedback>
                     </CInputGroup>
                     <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon icon={cilLockLocked} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
                         type="password"
                         placeholder="Password"
                         autoComplete="new-password"
                         onChange={(e) => setPassword(e.target.value)}
+                        style={{borderColor:'green'}}
                         required
                       />
                       <CFormFeedback valid>Looks good!</CFormFeedback>
                       <CFormFeedback invalid>Please set a password.</CFormFeedback>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
-                      <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon icon={cilLockLocked} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
                         type="password"
                         placeholder="Repeat password"
                         autoComplete="new-password"
                         onChange={(e) => setRepeatPass(e.target.value)}
+                        style={{borderColor:'green'}}
                         required
                       />
                       <CFormFeedback valid>Looks good!</CFormFeedback>

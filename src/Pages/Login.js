@@ -11,7 +11,8 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-  CImage
+  CImage,
+  CFormFeedback
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { freeSet } from "@coreui/icons";
@@ -24,30 +25,36 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [validated, setValidated] = useState(false);
 
-  const handleSubmit = async (e) => {
-    // const config = {
-    //   headers: {
-    //     "X-Authorization": "blablabla",
-    //   },
-    // };
-    await axios
-      .post(Api.userLogin, { email, password })
-      .then((res) => {
-        const result = res.data;
-        console.log(result)
-        if (res.status === 200) {
-          localStorage.setItem("userData", JSON.stringify(result.data));
-          // localStorage.removeItem("userToken");
-          navigate("/feed");
-          e.preventDefault();
-        } else {
-          alert(result.message);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleSubmit = async (event) => {
+    const form = event.currentTarget
+    if (form.checkValidity() === false) {
+      event.preventDefault()
+      event.stopPropagation()
+    }else{
+    if(!password){
+      console.log("Password yang Anda masukkan salah!");
+    } else {
+      await axios
+        .post(Api.userLogin, { email, password })
+        .then((res) => {
+          const result = res.data;
+          console.log(result)
+          if (res.status === 200) {
+            localStorage.setItem("userData", JSON.stringify(result.data));
+            navigate("/feed");
+            event.preventDefault();
+          } else {
+            alert(result.message);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+    }
+    setValidated(true);
   };
 
   return (
@@ -63,37 +70,48 @@ const Login = () => {
                 </h1>
               </CRow>
               <CRow>
-                <CImage className= 'mt-4 center' align='center' style={{width: '80vw'}} src='../Assets/welcome.png' />
+                <CImage className= 'mt-4 center' align='center' style={{width: '80vw'}} src={process.env.PUBLIC_URL + '/Assets/welcome.png'} />
               </CRow>
             </CCol>
         
             <CCol sm={6} className="justify-content-center mt-2">
               <CCard className= {`p-4 ${styles.login}`}>
                 <CCardBody>
-                  <CForm onSubmit = {handleSubmit()}>
+                  <CForm noValidate
+                    validated={validated}
+                    onSubmit={handleSubmit}
+                  >
                     <h2 className="text-medium-emphasis mb-3">
                       Masuk ke akun Anda!
                     </h2>
                     <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon content={freeSet.cilUser} />
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon content={freeSet.cilUser} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
-                        placeholder="Username"
-                        autoComplete="username"
+                        placeholder="Email"
+                        autoComplete="email"
                         onChange={(e) => setEmail(e.target.value)}
+                        style={{borderColor:'green'}}
+                        required
                       />
+                      <CFormFeedback valid>Data sudah diisi</CFormFeedback>
+                      <CFormFeedback invalid>Mohon masukkan email Anda!</CFormFeedback>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
-                      <CInputGroupText>
-                        <CIcon icon={freeSet.cilLockLocked} />
+                      <CInputGroupText style={{backgroundColor: 'grey', borderColor:'green'}}>
+                        <CIcon icon={freeSet.cilLockLocked} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
                         onChange={(e) => setPassword(e.target.value)}
+                        style={{borderColor:'green'}}
+                        required
                       />
+                      <CFormFeedback valid>Data sudah diisi</CFormFeedback>
+                      <CFormFeedback invalid>Password yang Anda masukkan salah!</CFormFeedback>
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
@@ -114,7 +132,7 @@ const Login = () => {
                     </CRow>
                   </CForm>
                   <div>
-                  <CImage className= 'center mt-3 mb-3' style={{width: '375px', height: '5px'}} src='../Assets/divider.png' />
+                  <CImage className= 'center mt-3 mb-3' style={{width: '375px', height: '5px'}} src={process.env.PUBLIC_URL + '/Assets/divider.png'} />
                     <p>
                       Belum punya akun?
                     </p>

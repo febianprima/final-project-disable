@@ -14,6 +14,7 @@ import {
   CFormSelect,
   CFormLabel,
   CFormText,
+  CFormFeedback
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { freeSet } from "@coreui/icons";
@@ -32,17 +33,18 @@ const Create = () => {
   const [firstInterest, setFirstInterest] = useState("");
   const [secondInterest, setSecondInterest] = useState("");
   const [thirdInterest, setThirdInterest] = useState("");
+  const [validated, setValidated] = useState(false);
 
-  const handleSubmit = async (e) => {
-    // const config = {
-    //   headers: {
-    //     "X-Authorization": "blablabla",
-    //   },
-    // };
-    const userID = JSON.parse(localStorage.getItem('userData'))
+  const handleSubmit = async (event) => {
+    const form = event.currentTarget
+    if (form.checkValidity() === false) {
+      event.preventDefault()
+      event.stopPropagation()
+    }else{
+      const userID = JSON.parse(localStorage.getItem('userData'))
 
-    await axios
-      .post(Api.createProfile, {
+      await axios
+        .post(Api.createProfile, {
           userID: userID.id,
           firstName, 
           lastName,
@@ -53,15 +55,22 @@ const Create = () => {
           secondInterest,
           thirdInterest
         })
-      .then((res) => {
-        const result = res.data;
-        console.log(result);
-        alert(result.message);
-        navigate("/feed");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          const result = res.data;
+          console.log(result);
+
+          if(res.status === 201){
+            navigate("/feed");
+            event.preventDefault();
+          }else{
+            alert(result.message);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+      setValidated(true);
   };
 
   return (
@@ -73,7 +82,11 @@ const Create = () => {
           <CCol md={9} lg={7} xl={6}>
             <CCard className="mx-4">
               <CCardBody className="p-4">
-                <CForm>
+                <CForm
+                  noValidate
+                  validated={validated}
+                  onSubmit={handleSubmit}
+                >
                   <h1 className='mb-3'>Beritahu kami tentang Anda</h1>
                   <div className="mb-3">
                     <CFormLabel htmlFor='firstname'>Nama Depan</CFormLabel>
@@ -89,6 +102,8 @@ const Create = () => {
                       required
                       style={{borderColor:'green'}}
                     />
+                    <CFormFeedback valid>Data sudah diisi.</CFormFeedback>
+                    <CFormFeedback invalid>Mohon isi data diri Anda!</CFormFeedback>
                     </CInputGroup>
                   </div>
                   <div className="mb-3">
@@ -170,6 +185,8 @@ const Create = () => {
                       <option value='Olahraga'>Olahraga (Atlet, Pembina, Pelatih)</option>
                       <option value='Seni'>Seni (Musik, Fotografi, Modelling, Desain Grafis)</option>
                     </CFormSelect>
+                    <CFormFeedback valid>Data sudah diisi.</CFormFeedback>
+                      <CFormFeedback invalid>Mohon untuk mengisi peminatan Anda!</CFormFeedback>
                     </CInputGroup>
                   </div>
                   <div className="mb-4">
@@ -215,7 +232,7 @@ const Create = () => {
                     </CInputGroup>
                   </div>
                   <div className="d-grid">
-                    <CButton color="success" onClick={() => handleSubmit()}>
+                    <CButton color="success" type="submit" onClick={() => handleSubmit()}>
                       Selesai
                     </CButton>
                   </div>

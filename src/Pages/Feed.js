@@ -29,7 +29,7 @@ function Feed() {
                       height: "100px",
                     }}
                     variant="top"
-                    src="../Assets/Image.jpg"
+                    src={process.env.PUBLIC_URL + "/Assets/Image.jpg"}
                     roundedCircle
                   />
                 </Link>
@@ -61,7 +61,7 @@ function Feed() {
                 <Image
                   className="m-1"
                   style={{ width: "60px", height: "60px" }}
-                  src="../Assets/Pic1.jpg"
+                  src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                 />
                 <Button
                   className="mt-3 mb-3"
@@ -79,28 +79,28 @@ function Feed() {
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/gallery.png"
+                      src={process.env.PUBLIC_URL + "/Assets/gallery.png"}
                     />
                     <span className="ms-2">Foto</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/multimedia.png"
+                      src={process.env.PUBLIC_URL + "/Assets/multimedia.png"}
                     />
                     <span className="ms-2">Video</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/timetable.png"
+                      src={process.env.PUBLIC_URL + "/Assets/timetable.png"}
                     />
                     <span className="ms-2">Acara</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/document.png"
+                      src={process.env.PUBLIC_URL + "/Assets/document.png"}
                     />
                     <span className="ms-2">Article</span>
                   </Col>
@@ -112,7 +112,7 @@ function Feed() {
                 <Image
                   className="m-1"
                   style={{ width: "60px", height: "60px" }}
-                  src="../Assets/Pic1.jpg"
+                  src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
                 />
                 <span className="ms-2 mt-4">Muhamad Ajie Darmawan</span>
               </div>
@@ -122,34 +122,34 @@ function Feed() {
                   the bulk of the card's content.
                 </Card.Text>
               </Card.Body>
-              <Card.Img variant="bottom" src="../Assets/Image.jpg" />
+              <Card.Img variant="bottom" src={process.env.PUBLIC_URL + "/Assets/Image.jpg"} />
               <Card.Body>
                 <Row>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/like.png"
+                      src={process.env.PUBLIC_URL + "/Assets/like.png"}
                     />
                     <span className="ms-2">Like</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/comment.png"
+                      src={process.env.PUBLIC_URL + "/Assets/comment.png"}
                     />
                     <span className="ms-2">Comment</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/share.png"
+                      src={process.env.PUBLIC_URL + "/Assets/share.png"}
                     />
                     <span className="ms-2">Share</span>
                   </Col>
                   <Col className="text-center">
                     <Image
                       style={{ width: "20px", height: "20px" }}
-                      src="../Assets/send.png"
+                      src={process.env.PUBLIC_URL + "/Assets/send.png"}
                     />
                     <span className="ms-2">Send</span>
                   </Col>
@@ -159,7 +159,7 @@ function Feed() {
           </Col>
           <Col lg="3" className="d-flex justify-content-center">
             <Card style={{ width: "18rem", height: "30rem" }}>
-              <Card.Img variant="top" src="../Assets/Image.jpg" />
+              <Card.Img variant="top" src={process.env.PUBLIC_URL + "/Assets/Image.jpg"} />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>
