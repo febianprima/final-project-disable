@@ -5,7 +5,7 @@ import { GET_PROFILE } from '../Utils/Query'
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 
-function Profile(props) {
+function Profile() {
   const user = JSON.parse(localStorage.getItem('userData'));
   const navigate = useNavigate();
   
@@ -16,9 +16,19 @@ function Profile(props) {
   }
 
   const id = user.id;
+
   const { loading, error, data } = useQuery(GET_PROFILE, {
     variables: { id: id}
   });
+
+  if(loading){
+    return <div>Loading</div>
+  }
+
+  if (error){
+    return <div>{error.toString()}</div>
+  }
+
   console.log(data)
 
   return (

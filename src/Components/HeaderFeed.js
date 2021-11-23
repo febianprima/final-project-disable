@@ -5,11 +5,12 @@ import { freeSet } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
 
 function HeaderFeed() {
-  let user = JSON.parse(localStorage.getItem('userData'))
+  let user = JSON.parse(localStorage.getItem('userData'));
+  let id = user.id;
   const navigate = useNavigate();
   const logOut =()=>{
     localStorage.clear();
-    navigate('/login')
+    navigate('/login');
   }
   return (
     <Navbar
@@ -17,7 +18,7 @@ function HeaderFeed() {
       style={{ top: "0", position: "sticky", zIndex: "10", backgroundColor:'#34BE82' }}
     >
       <Container>
-        <Navbar.Brand href="/feed">
+        <Navbar.Brand href={`/final-project-disable/feed/${id}`}>
         <Image style={{width: '40px'}} src={process.env.PUBLIC_URL + "/Assets/icon.png"} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -35,33 +36,33 @@ function HeaderFeed() {
             </Form>
           </Nav>
         </Navbar.Collapse>
-        <NavLink href='/feed'>
+        <NavLink href={`/final-project-disable/feed/${id}`}>
           <Image
             style={{ width: "20px", height: "20px" }}
             src={process.env.PUBLIC_URL + "/Assets/home.png"}
-            href='/feed'
+            href={`/final-project-disable/feed/${id}`}
           />
           
         </NavLink>
-        <NavLink href='/contact'>
+        <NavLink href={`/final-project-disable/connection/${id}`}>
         <Image
           style={{ width: "25px", height: "25px" }}
           src={process.env.PUBLIC_URL + "/Assets/user.png"}
         />
         </NavLink>
-        <NavLink href='/job'>
+        <NavLink href={`/final-project-disable/job/${id}`}>
         <Image
           style={{ width: "20px", height: "20px" }}
           src={process.env.PUBLIC_URL + "/Assets/bag.png"}
         />
         </NavLink>
-        <NavLink href='/notification'>
+        <NavLink href={`/final-project-disable/notification/${id}`}>
         <Image
           style={{ width: "20px", height: "20px" }}
           src={process.env.PUBLIC_URL + "/Assets/bell.png"}
         />
         </NavLink>
-        <NavLink href='/chat'>
+        <NavLink href={`/final-project-disable/chat/${id}`}>
         <Image
           className="ms-auto me-3"
           style={{ width: "25px", height: "25px" }}
@@ -74,7 +75,7 @@ function HeaderFeed() {
             src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
             roundedCircle
           />}>
-          <NavDropdown.Item href='/profile'>Profil Anda</NavDropdown.Item>
+          <NavDropdown.Item href={`final-project-disable/profile/${id}`}>Profil Anda</NavDropdown.Item>
           <NavDropdown.Item>Pengaturan</NavDropdown.Item>
           <NavDropdown.Item onClick={logOut}>Keluar</NavDropdown.Item>
         </NavDropdown>

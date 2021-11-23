@@ -26,6 +26,7 @@ function Feed() {
   }
 
   const { loading, error, data } = useQuery(GET_FEED);
+  const userId = user.id;
 
   return (
     <div>
@@ -35,7 +36,7 @@ function Feed() {
           <Col lg="3" className="d-flex justify-content-center">
             <Card style={{ width: "18rem", height: "30rem" }}>
               <div className="d-flex justify-content-center mt-3">
-                <Link to="/profile">
+                <Link to={`/profile/${userId}`}>
                   <Image
                     style={{
                       width: "100px",
