@@ -43,3 +43,16 @@ query($userID: Int!){
         }
     }
 }`
+
+export const GET_CHATROOM = gql `
+query($id: Int!){
+    users (where: {id: {_eq: $id}}){
+        username
+        email
+        password
+        profile{
+            firstName,
+            lastName
+        }
+    }
+}`

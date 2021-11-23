@@ -23,7 +23,7 @@ function App() {
           <Route path="feed/:id" element={<Feed />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="create" element={<Create />} />
-          <Route path="chat" element={<Chat />} />
+          <Route path="chat/:id" element={<Chat />} />
         </Routes>
     </div>
   );

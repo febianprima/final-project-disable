@@ -1,130 +1,61 @@
-import React from "react";
-import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
-import { CInputGroup, CFormInput } from "@coreui/react";
+import { ChatEngine } from 'react-chat-engine';
+import HeaderFeed from '../Components/HeaderFeed';
+import ChatFeed from '../Components/ChatFeed';
+import '../Css/Chat.css';
+import axios from 'axios';
+import { GET_CHATROOM } from '../Utils/Query';
+import { useQuery } from '@apollo/client';
 
-function ChatRoom() {
-  return (
-    <div>
-      <Container>
-        <Row className="mt-5">
-          <Col lg="4">
-            <Card>
-              <Card.Body>
-                <div>
-                  <Image
-                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
-                    alt="avatar"
-                    roundedCircle
-                    style={{ width: "15%" }}
-                  />
-                  <span className="ms-3">Vincent Porter</span>
-                  <p className="mt-3">left 7 mins ago</p>
-                </div>
-                <div>
-                  <Image
-                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
-                    alt="avatar"
-                    roundedCircle
-                    style={{ width: "15%" }}
-                  />
-                  <span className="ms-3">Vincent Porter</span>
-                  <p className="mt-3">left 7 mins ago</p>
-                </div>
-                <div>
-                  <Image
-                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
-                    alt="avatar"
-                    roundedCircle
-                    style={{ width: "15%" }}
-                  />
-                  <span className="ms-3">Vincent Porter</span>
-                  <p className="mt-3">left 7 mins ago</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col lg="8">
-            <Card>
-              <Card.Header>
-                <div>
-                  <Image
-                    src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
-                    alt="avatar"
-                    roundedCircle
-                    style={{ width: "15%" }}
-                  />
-                  <span className="ms-3">Vincent Porter</span>
-                  <p className="mt-3">left 7 mins ago</p>
-                </div>
-                <div className="text-right">
-                  <Button variant="outline-secondary" className="me-3">
-                    <i className="fa fa-camera"></i>
-                  </Button>
-                  <Button variant="outline-primary" className="me-3">
-                    <i className="fa fa-image"></i>
-                  </Button>
-                  <Button variant="outline-info" className="me-3">
-                    <i className="fa fa-cogs"></i>
-                  </Button>
-                  <Button variant="outline-warning" className="me-3">
-                    <i className="fa fa-question"></i>
-                  </Button>
-                </div>
-              </Card.Header>
-              <Card.Body>
-                <div>
-                  <ul>
-                    <li>
-                      <div className="message-data text-right">
-                        <span class="message-data-time">10:10 AM, Today</span>
-                      </div>
-                      <div className="message other-message float-right">
-                        {" "}
-                        Hi Aiden, how are you? How is the project coming along?{" "}
-                      </div>
-                    </li>
-                    <li className="clearfix">
-                      <div className="message-data">
-                        <span className="message-data-time">
-                          10:12 AM, Today
-                        </span>
-                      </div>
-                      <div className="message my-message">
-                        Are we meeting today?
-                      </div>
-                    </li>
-                    <li className="clearfix">
-                      <div className="message-data">
-                        <span className="message-data-time">
-                          10:15 AM, Today
-                        </span>
-                      </div>
-                      <div className="message my-message">
-                        Project has been already finished and I have results to
-                        show you.
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <CInputGroup className="mb-3">
-                  <Image
-                    className="me-3"
-                    src={process.env.PUBLIC_URL + "/Assets/send.png"}
-                    style={{ width: "40px" }}
-                  />
-                  <CFormInput
-                    placeholder="Message"
-                    aria-label="message"
-                    aria-describedby="basic-addon1"
-                  />
-                </CInputGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+const Chatroom = () => {
+    // const user = JSON.parse(localStorage.getItem('userData'));
+    // const id = user.id;
+
+    // const { loading, error, data } = useQuery(GET_CHATROOM, {
+    //     variables: { id: id}
+    // });
+
+    // if(loading){
+    // return <div>Loading</div>
+    // }
+
+    // if (error){
+    // return <div>{error.toString()}</div>
+    // }
+
+    // const authObject = { 'Project-ID': '8a530897-5d7d-4884-b1d4-ecc5bd6094a9', 'User-Name': user.username };
+
+    // const check = axios.get('https://api.chatengine.io/users', {headers: authObject });
+    
+    // if(check.status === null){
+    //     axios.post('https://api.chatengine.io/users', 
+    //         {headers: {'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d'}},
+    //         {data: {'username': data.users[0].username,
+    //             'secret': data.users[0].password,
+    //             'email': data.users[0].email,
+    //             'first_name': data.users[0].profile[0].firstName,
+    //             'last_name': data.users[0].profile[0].lastName
+    //         }}
+    //     )
+    //     .then((res)=>{
+    //         console.log(JSON.stringify(res.data));
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err);
+    //     })
+    // }
+
+    return(
+        <div>
+            <HeaderFeed />
+            <ChatEngine
+                height='85vh'
+                projectID='8a530897-5d7d-4884-b1d4-ecc5bd6094a9'
+                userName='CHATROOM'
+                userSecret='12345'
+                renderChatFeed = {(chatAppProps) => <ChatFeed {...chatAppProps} />}
+            />
+        </div>
+    )
 }
 
-export default ChatRoom;
+export default Chatroom;

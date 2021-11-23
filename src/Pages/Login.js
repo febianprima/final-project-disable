@@ -23,21 +23,23 @@ import styles from '../Css/Login.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget
+
     if (form.checkValidity() === false) {
       event.preventDefault()
       event.stopPropagation()
     }else{
     if(!password){
       console.log("Password yang Anda masukkan salah!");
+      event.preventDefault()
     } else {
       await axios
-        .post(Api.userLogin, { email, password })
+        .post(Api.userLogin, { username, password })
         .then((res) => {
           const result = res.data;
           console.log(result)
@@ -89,9 +91,9 @@ const Login = () => {
                         <CIcon content={freeSet.cilUser} style={{width:'20px', color:'white'}} />
                       </CInputGroupText>
                       <CFormInput
-                        placeholder="Email"
-                        autoComplete="email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Username / Email"
+                        autoComplete="username"
+                        onChange={(e) => setUserName(e.target.value)}
                         style={{borderColor:'green'}}
                         required
                       />
