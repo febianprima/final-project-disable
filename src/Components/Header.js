@@ -6,24 +6,42 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <Navbar className={styles.warnaNav}
-       expand="lg"
-       style={{ top: "0", position: "sticky", zIndex: "10", backgroundColor:'#34BE82' }}
+      <Navbar
+        className={styles.warnaNav}
+        expand="lg"
+        style={{
+          top: "0",
+          position: "sticky",
+          zIndex: "10",
+          backgroundColor: "#34BE82",
+        }}
       >
         <Container>
-          <Navbar.Brand href="/" className="text-white">
-            <Image style={{width: '15vw'}} src={process.env.PUBLIC_URL + "/Assets/logo.png"} />
+          <Navbar.Brand href="/final-project-disable" className="text-white">
+            <Image
+              style={{ width: "15vw" }}
+              src={process.env.PUBLIC_URL + "/Assets/logo.png"}
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
-              <Nav.Link className="text-white me-4" href="/">
+              <Nav.Link
+                className="text-white me-4"
+                href="/final-project-disable"
+              >
                 Home
               </Nav.Link>
-              <Nav.Link className="text-white me-4" href="/about">
+              <Nav.Link
+                className="text-white me-4"
+                href="/final-project-disable/about"
+              >
                 About Us
               </Nav.Link>
-              <Nav.Link className="text-white" href="/contact">
+              <Nav.Link
+                className="text-white"
+                href="/final-project-disable/contact"
+              >
                 Contact
               </Nav.Link>
             </Nav>
