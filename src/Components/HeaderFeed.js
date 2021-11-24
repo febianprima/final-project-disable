@@ -93,16 +93,6 @@ function HeaderFeed() {
         </NavLink>
         <NavLink
           className="text-center"
-          href={`/final-project-disable/notification/${id}`}
-        >
-          <Image
-            style={{ width: "20px", height: "20px" }}
-            src={process.env.PUBLIC_URL + "/Assets/bell.png"}
-          />
-          <p style={{ color: "white" }}>Notif</p>
-        </NavLink>
-        <NavLink
-          className="text-center"
           href={`/final-project-disable/chat/${id}`}
         >
           <Image

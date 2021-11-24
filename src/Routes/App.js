@@ -11,6 +11,7 @@ import Profile from "../Pages/Profile";
 import Create from "../Pages/Create";
 import Chat from "../Pages/ChatRoom";
 import Connection from "../Pages/Connection";
+import Jobs from "../Pages/Jobs";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="create" element={<Create />} />
         <Route path="chat/:id" element={<Chat />} />
         <Route path="connection" element={<Connection />} />
+        <Route path="job/:id" element={<Jobs />} />
       </Routes>
     </div>
   );
