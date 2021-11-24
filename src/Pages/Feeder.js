@@ -196,21 +196,25 @@ return (
               </Card.Body>
             </Card>
             {data.users[0].contents.map((item,index)=>(
-              <Card className="mb-5">
+              <Card className="mb-5" key={index}>
               <div className="d-flex">
                 <Image
                   className="m-1"
-                  style={{ width: "60px", height: "60px" }}
+                  style={{ width: "70px", height: "70px" }}
                   src="../Assets/Pic1.jpg"
                 />
-                {/* <span className="ms-2 mt-4">{item.user[0].profile[0].firstName} {item.user[0].profile[0].lastName}</span> */}
+                <Card.Title className="ms-2 mt-3">{item.user.profile[0].firstName} {item.user.profile[0].lastName}
+                  <Card.Text className='mt-2' style={{color:'seafoam', fontSize:'10pt'}}>@{item.user.username}</Card.Text>
+                </Card.Title>
+              </div>
+              <div className="d-flex">
+              
               </div>
               <Card.Body>
-                <Card.Text>
+                <Card.Text className='ms-4'>
                   {item.article}
                 </Card.Text>
               </Card.Body>
-              <Card.Img variant="bottom" src="../Assets/Image.jpg" />
               <Card.Body>
                 <Row>
                   <Col className="text-center">

@@ -37,15 +37,7 @@ const Connection = () => {
   if (error){
     return <div>{error.toString()}</div>
   }
-
-  const contact = data.users[0].contact
-  const connection = [];
-
-  for (let i = 0; i < contact.length; i++){
-    connection.push(contact[i].connection)
-  }
-  
-  console.log(connection)
+  console.log(data.users[0].contact)
 
   return (
     <div>
@@ -54,10 +46,17 @@ const Connection = () => {
       <Container>
         <Col className="mt-5">
           <Row lg="3" className="d-flex justify-content-center mb-3">
-            <Card style={{ width: "90rem", backgroundColor:'#34BE82',borderRadius: "20px" }}>
+            <Card 
+              style={{ width: "90rem", 
+              backgroundColor:'#34BE82',
+              borderTopLeftRadius: "20px",
+              borderTopRightRadius: "20px"
+              }}
+            >
               <div className="d-flex justify-content-center mt-3">
                 <Link to={`/profile/${user.id}`}>
                   <Image
+                    className='mt-4'
                     style={{
                       width: "100px",
                       height: "100px",
@@ -84,26 +83,22 @@ const Connection = () => {
               <Card style={{ width: "90rem", backgroundColor:'whitesmoke'}}>
                 <Card.Body className="text-center">
                 <Card.Title style={{fontSize:'30pt', fontWeight:'bolder', textAlign:'center'}}>Koneksi Anda</Card.Title>
+                <Row>
+                  <CardGroup>
+                    {data.users[0].contact.map((item,index)=>(
+                      <Card className="m-3 text-center align-items-center" style={{backgroundColor:'aquamarine'}}>
+                        <Card.Img variant="top" className='mt-4' style={{width:'200px', borderRadius:'100%' }} src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"} />
+                        <Card.Body>
+                          <Card.Title>{item.connection.profile[0].firstName} {item.connection.profile[0].lastName}</Card.Title>
+                          <Card.Text>@{item.connection.username}</Card.Text>
+                          <Card.Text className='mb-4' >{item.connection.profile[0].status}</Card.Text>
+                        </Card.Body>
+                      </Card>
+                    )) }
+                  </CardGroup>
+                </Row>
                 </Card.Body>
               </Card>
-          </Row>
-          <Row>
-            <CardGroup>
-              <Card className="m-3">
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </Card.Footer>
-              </Card>
-            </CardGroup>
           </Row>
         </Col>
       </Container>

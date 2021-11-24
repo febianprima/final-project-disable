@@ -25,13 +25,12 @@ query($id: Int!){
             lastName
         }
         contact{
-            userID
-            connectionID
             connection{
                 username
                 profile{
                     firstName
                     lastName
+                    status
                 }
             }
         }
