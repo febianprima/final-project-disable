@@ -12,3 +12,11 @@
   width: 25px;
   height: 25px;
 }
+
+.garisSpan {
+  width: 35px;
+  height: 4px;
+  margin: 30px 15px;
+  background: #f47522;
+  border-radius: 2px;
+}
