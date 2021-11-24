@@ -57,7 +57,7 @@ function Profile() {
                   height: "180px",
                   position: "absolute",
                 }}
-                src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
+                src={process.env.PUBLIC_URL + "/Assets/Pic1.png"}
                 roundedCircle
               />
               <Row className="ms-3 mt-3">

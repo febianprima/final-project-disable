@@ -62,7 +62,7 @@ const Connection = () => {
                       height: "100px",
                     }}
                     variant="top"
-                    src={process.env.PUBLIC_URL + "/Assets/Image.jpg"}
+                    src={process.env.PUBLIC_URL + "/Assets/Pic1.png"}
                     roundedCircle
                   />
                 </Link>
@@ -86,8 +86,8 @@ const Connection = () => {
                 <Row>
                   <CardGroup>
                     {data.users[0].contact.map((item,index)=>(
-                      <Card className="m-3 text-center align-items-center" style={{backgroundColor:'aquamarine'}}>
-                        <Card.Img variant="top" className='mt-4' style={{width:'200px', borderRadius:'100%' }} src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"} />
+                      <Card className="m-3 text-center align-items-center" style={{backgroundColor:'#34BE82'}}>
+                        <Card.Img variant="top" className='mt-4' style={{width:'200px', borderRadius:'100%' }} src={process.env.PUBLIC_URL + "/Assets/Pic1.png"} />
                         <Card.Body>
                           <Card.Title>{item.connection.profile[0].firstName} {item.connection.profile[0].lastName}</Card.Title>
                           <Card.Text>@{item.connection.username}</Card.Text>

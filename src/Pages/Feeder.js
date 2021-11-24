@@ -96,7 +96,7 @@ return (
                       height: "100px",
                     }}
                     variant="top"
-                    src="../Assets/Image.jpg"
+                    src={process.env.PUBLIC_URL +"/Assets/Pic1.png"}
                     roundedCircle
                   />
                 </Link>
@@ -119,9 +119,10 @@ return (
             <Card className="mb-3" style={{backgroundColor:'whitesmoke'}}>
               <div className="d-flex">
                 <Image
-                  className="m-1"
+                  className="mt-3"
                   style={{ width: "60px", height: "60px" }}
-                  src="../Assets/Pic1.jpg"
+                  src={process.env.PUBLIC_URL + "/Assets/Pic1.png"}
+                  roundedCircle
                 />
                 <form>
                     <Row>
@@ -136,9 +137,6 @@ return (
                             
                             onChange={(e) => setArticle(e.target.value)}
                         >
-                            {/* <span style={{ float: "left", marginLeft: "10px" }}>
-                            Mulai buat postingan
-                            </span> */}
                         </textarea>
                     </Row>
                     <Row>
@@ -197,13 +195,13 @@ return (
             </Card>
             {data.users[0].contents.map((item,index)=>(
               <Card className="mb-5" key={index}>
-              <div className="d-flex">
+              <div className="d-flex mt-3 ms-3">
                 <Image
-                  className="m-1"
-                  style={{ width: "70px", height: "70px" }}
-                  src="../Assets/Pic1.jpg"
+                  className="mt-2 ms-2"
+                  style={{ width: "60px", height: "60px" }}
+                  src={process.env.PUBLIC_URL +"/Assets/Pic1.png"}
                 />
-                <Card.Title className="ms-2 mt-3">{item.user.profile[0].firstName} {item.user.profile[0].lastName}
+                <Card.Title className="ms-3 mt-3">{item.user.profile[0].firstName} {item.user.profile[0].lastName}
                   <Card.Text className='mt-2' style={{color:'seafoam', fontSize:'10pt'}}>@{item.user.username}</Card.Text>
                 </Card.Title>
               </div>
@@ -211,11 +209,11 @@ return (
               
               </div>
               <Card.Body>
-                <Card.Text className='ms-4'>
+                <Card.Text className='ms-5 ps-4 mt-3'>
                   {item.article}
                 </Card.Text>
               </Card.Body>
-              <Card.Body>
+              <Card.Body className='mt-3'>
                 <Row>
                   <Col className="text-center">
                     <Image

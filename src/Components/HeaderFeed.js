@@ -143,7 +143,7 @@ function HeaderFeed() {
         <Image
           style={{ width: "40px" }}
           className="text-primary mb-1"
-          src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
+          src={process.env.PUBLIC_URL + "/Assets/Pic1.png"}
           roundedCircle
         />
       </NavLink>

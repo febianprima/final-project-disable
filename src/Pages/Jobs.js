@@ -30,7 +30,7 @@ function Jobs() {
       <Header />
       <Image
         style={{ width: "100%", height: "600px", objectFit: "cover" }}
-        src="./Assets/Image.jpg"
+        src={process.env.PUBLIC_URL + "/Assets/Image.jpg"}
       />
       <Container className="mt-3 mb-5">
         <div className="text-center mt-4 mb-5">
