@@ -45,7 +45,8 @@ const Register = () => {
 
           if(res.status === 201){
             localStorage.setItem("userData", JSON.stringify(result.data));
-            navigate("/create")
+            const user = JSON.parse(localStorage.getItem('userData'));
+            navigate(`/create/${user.id}`)
             event.preventDefault()
           }else{
             alert(result.message);

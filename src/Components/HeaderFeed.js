@@ -3,15 +3,38 @@ import { Navbar, Container, Form, FormControl, Image, NavLink, NavDropdown, Nav 
 import { useNavigate } from "react-router-dom";
 import { freeSet } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
+import Api from "../Utils/Api";
+import axios from "axios";
 
 function HeaderFeed() {
   let user = JSON.parse(localStorage.getItem('userData'));
   let id = user.id;
   const navigate = useNavigate();
-  const logOut =()=>{
+
+  const logOut = () => {
     localStorage.clear();
     navigate('/login');
   }
+
+  const deleteAccount = async (event) => {
+    await axios
+      .delete(Api.deleteUser)
+      .then((res) => {
+        const result = res.data;
+        console.log(result);
+        if(res.status === 200){
+          navigate('/login');
+          event.preventDefault();
+          localStorage.clear();
+        } else {
+          alert(result.message)
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   return (
     <Navbar
       expand="lg"
@@ -75,8 +98,7 @@ function HeaderFeed() {
             src={process.env.PUBLIC_URL + "/Assets/Pic1.jpg"}
             roundedCircle
           />}>
-          <NavDropdown.Item href={`final-project-disable/profile/${id}`}>Profil Anda</NavDropdown.Item>
-          <NavDropdown.Item>Pengaturan</NavDropdown.Item>
+          <NavDropdown.Item onClick={deleteAccount}>Hapus Akun</NavDropdown.Item>
           <NavDropdown.Item onClick={logOut}>Keluar</NavDropdown.Item>
         </NavDropdown>
       </Container>
