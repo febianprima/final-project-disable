@@ -60,7 +60,7 @@ const Create = () => {
           console.log(result);
 
           if(res.status === 201){
-            navigate("/feed");
+            navigate(`/feed/${user.id}`);
             event.preventDefault();
           }else{
             alert(result.message);

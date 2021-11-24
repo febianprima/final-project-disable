@@ -50,7 +50,7 @@ const Chatroom = () => {
             <ChatEngine
                 height='85vh'
                 projectID='8a530897-5d7d-4884-b1d4-ecc5bd6094a9'
-                userName='CHATROOM'
+                userName='Test'
                 userSecret='12345'
                 renderChatFeed = {(chatAppProps) => <ChatFeed {...chatAppProps} />}
             />
