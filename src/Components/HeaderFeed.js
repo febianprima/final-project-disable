@@ -40,68 +40,47 @@ function HeaderFeed() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="m-auto">
-            <Form className="d-flex ms-2">
-              <CIcon
-                icon={freeSet.cilSearch}
-                style={{ width: "22px", color: "black" }}
-              />
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="ms-2 me-5"
-                aria-label="Search"
-                style={{
-                  border: "none",
-                  width: "35vw",
-                  borderBottomColor: "black",
-                }}
-              />
-            </Form>
-          </Nav>
-        </Navbar.Collapse>
-        <NavLink
-          className="text-center"
-          href={`/final-project-disable/feed/${id}`}
-        >
-          <Image
-            style={{ width: "20px", height: "20px" }}
-            src={process.env.PUBLIC_URL + "/Assets/home.png"}
+          <Nav className="m-auto"></Nav>
+          <NavLink
+            className="text-center"
             href={`/final-project-disable/feed/${id}`}
-          />
-          <p style={{ color: "white" }}>Home</p>
-        </NavLink>
-        <NavLink
-          className="text-center"
-          href={`/final-project-disable/connection/${id}`}
-        >
-          <Image
-            style={{ width: "25px", height: "25px" }}
-            src={process.env.PUBLIC_URL + "/Assets/user.png"}
-          />
-          <p style={{ color: "white" }}>Profile</p>
-        </NavLink>
-        <NavLink
-          className="text-center"
-          href={`/final-project-disable/job/${id}`}
-        >
-          <Image
-            style={{ width: "20px", height: "20px" }}
-            src={process.env.PUBLIC_URL + "/Assets/bag.png"}
-          />
-          <p style={{ color: "white" }}>Jobs</p>
-        </NavLink>
-        <NavLink
-          className="text-center"
-          href={`/final-project-disable/chat/${id}`}
-        >
-          <Image
-            className="ms-auto"
-            style={{ width: "25px", height: "25px" }}
-            src={process.env.PUBLIC_URL + "/Assets/chat.png"}
-          />
-          <p style={{ color: "white" }}>Chat</p>
-        </NavLink>
+          >
+            <Image
+              style={{ width: "20px", height: "20px" }}
+              src={process.env.PUBLIC_URL + "/Assets/home.png"}
+              href={`/final-project-disable/feed/${id}`}
+            />
+            <p style={{ color: "white" }}>Home</p>
+          </NavLink>
+          <NavLink
+            className="text-center"
+            href={`/final-project-disable/connection/${id}`}
+          >
+            <Image
+              style={{ width: "25px", height: "25px" }}
+              src={process.env.PUBLIC_URL + "/Assets/user.png"}
+            />
+            <p style={{ color: "white" }}>Profile</p>
+          </NavLink>
+          <NavLink className="text-center" href={`/final-project-disable/job`}>
+            <Image
+              style={{ width: "20px", height: "20px" }}
+              src={process.env.PUBLIC_URL + "/Assets/bag.png"}
+            />
+            <p style={{ color: "white" }}>Jobs</p>
+          </NavLink>
+          <NavLink
+            className="text-center"
+            href={`/final-project-disable/chat/${id}`}
+          >
+            <Image
+              className="ms-auto"
+              style={{ width: "25px", height: "25px" }}
+              src={process.env.PUBLIC_URL + "/Assets/chat.png"}
+            />
+            <p style={{ color: "white" }}>Chat</p>
+          </NavLink>
+        </Navbar.Collapse>
         <NavDropdown
           title={
             <Image

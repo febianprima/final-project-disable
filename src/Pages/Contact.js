@@ -14,12 +14,13 @@ function About() {
           id="get-in"
           className="fs-1 fw-bold mt-5 mb-5 d-flex justify-content-center"
         >
-          <span className="garisSpan"></span>Get In Touch
-          <span className="garisSpan"></span>
+          <span className={`${styles.garisSpan}`}></span>Our Contact
+          <span className={`${styles.garisSpan}`}></span>
         </p>
 
         <Row className="align-items-start">
-          <Col lg="4">
+          <Col></Col>
+          <Col>
             <div className="mb-3">
               <span>Phone</span>
               <br></br>
@@ -75,56 +76,7 @@ function About() {
               />
             </div>
           </Col>
-          <Col lg="8">
-            <p className="mb-4">
-              If you have any suggestion, project or even you want to say,
-              Hello.. Please fill out the form below and I will reply you
-              shortly.
-            </p>
-
-            <Form>
-              <Form.Group className="mb-4">
-                <Form.Label>
-                  Full Name <span>*</span>
-                </Form.Label>
-                <Form.Control type="text" placeholder="Your Name" />
-              </Form.Group>
-              <Form.Group className="mb-4">
-                <Form.Label>
-                  Email Address <span>*</span>
-                </Form.Label>
-                <Form.Control type="email" placeholder="Your Email" />
-              </Form.Group>
-              <Form.Group className="mb-4">
-                <Form.Label>
-                  Phone Number <span>*</span>
-                </Form.Label>
-                <Form.Control type="text" placeholder="Your Phone Number" />
-              </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label>Message</Form.Label>
-                <Form.Control
-                  placeholder="Your Message …"
-                  as="textarea"
-                  rows={5}
-                />
-              </Form.Group>
-            </Form>
-            <Button
-              className={`btn btn-primary text-white me-5 col-lg-4 mx-auto ${styles.forButton}`}
-            >
-              <span>
-                <Image
-                  className={styles.imgButton}
-                  src={process.env.PUBLIC_URL + "/assets/send-mail.png"}
-                />
-              </span>{" "}
-              Send Message
-            </Button>
-          </Col>
+          <Col></Col>
         </Row>
       </Container>
 
