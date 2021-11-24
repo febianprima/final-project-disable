@@ -10,21 +10,23 @@ import Feed from "../Pages/Feed";
 import Profile from "../Pages/Profile";
 import Create from "../Pages/Create";
 import Chat from "../Pages/ChatRoom";
+import Connection from "../Pages/Connection";
 
 function App() {
   return (
     <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="feed/:id" element={<Feed />} />
-          <Route path="profile/:id" element={<Profile />} />
-          <Route path="create" element={<Create />} />
-          <Route path="chat/:id" element={<Chat />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="feed/:id" element={<Feed />} />
+        <Route path="profile/:id" element={<Profile />} />
+        <Route path="create" element={<Create />} />
+        <Route path="chat/:id" element={<Chat />} />
+        <Route path="connection" element={<Connection />} />
+      </Routes>
     </div>
   );
 }
