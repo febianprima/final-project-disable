@@ -65,7 +65,11 @@ function Profile() {
                   <p className="fw-bold fs-5">{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</p>
                   <p>@{data.users[0].username}</p>
                   <p>{data.users[0].profile[0].status}</p>
-                  <p>{data.users[0].contact.length} Koneksi</p>
+                  <Link 
+                    style={{textDecoration:'none', color:'#34BE82', fontWeight:'bold'}}
+                    to={`/connection/${user.id}`}>
+                      {data.users[0].contact.length} Koneksi
+                  </Link>
                 </Col>
                 {/* <Col>
                   <div className="mb-3">

@@ -84,7 +84,8 @@ return (
           <Row lg="3" className="d-flex justify-content-center mb-3">
             <Card 
               style={{ width: "90rem", 
-                height: "20rem", 
+                height: "20rem",
+                color:'white', 
                 backgroundColor:'#34BE82',
                 borderTopLeftRadius: "20px",
                 borderTopRightRadius: "20px" }}>
@@ -103,15 +104,16 @@ return (
               </div>
               <Card.Body className="text-center">
                 <Link
-                  style={{ textDecoration: "none", color: "black" }}
-                  to="/profile"
+                  style={{ textDecoration: "none", color:'black' }}
+                  to={`/profile/${user.id}`}
                 >
-                  <Card.Title>{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</Card.Title>
+                  <Card.Title style={{fontWeight:'bolder',fontSize:'24pt'}}>{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</Card.Title>
                 </Link>
-                <Card.Text>@{data.users[0].username}</Card.Text>
-                <Card.Text>{data.users[0].profile[0].status}</Card.Text>
-                <Card.Text>{data.users[0].contact.length} Koneksi</Card.Text>
-                
+                <Card.Text style={{fontSize:'12pt'}}>@{data.users[0].username}</Card.Text>
+                <Card.Text style={{fontWeight:'bolder',fontSize:'14pt', color:'lavender'}}>{data.users[0].profile[0].status}</Card.Text>
+                <Link style={{ textDecoration: "none", color:'black' }} to={`/connection/${user.id}`}>
+                  <Card.Text style={{fontWeight:'bold',fontSize:'12pt'}}>{data.users[0].contact.length} Koneksi</Card.Text>
+                </Link>
               </Card.Body>
             </Card>
           </Row>
@@ -129,7 +131,7 @@ return (
                         <textarea
                             className="mt-3 mb-3 ms-4"
                             style={{ borderRadius: "5px", 
-                              width: "70vw", 
+                              width: "75vw", 
                               height: "150px" }}
                             size="sm"
                             variant="outline-secondary"

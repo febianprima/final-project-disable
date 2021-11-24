@@ -26,7 +26,7 @@ function HeaderFeed() {
 
   const deleteAccount = async (event) => {
     await axios
-      .delete(Api.deleteUser / user.id)
+      .delete(Api.deleteUser + `/${user.id}`)
       .then((res) => {
         const result = res.data;
         console.log(result);
@@ -94,38 +94,28 @@ function HeaderFeed() {
           src={process.env.PUBLIC_URL + "/Assets/home.png"}
           href={`/final-project-disable/feed/${user.id}`}
         />
-        <p style={{ color: "white", fontSize: "10pt" }}>Beranda</p>
+        <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Beranda</p>
       </NavLink>
       <NavLink
         className="text-center pt-4"
         href={`/final-project-disable/connection/${user.id}`}
       >
         <Image
-          style={{ width: "25px" }}
+          style={{ width: "27px" }}
           src={process.env.PUBLIC_URL + "/Assets/user.png"}
         />
-        <p style={{ color: "white", fontSize: "10pt" }}>Koneksi</p>
+        <p className='mt-1' style={{ color: "white", fontSize: "8pt" }}>Koneksi</p>
       </NavLink>
-      {/* <NavLink
-          className="text-center pt-4 me-2"
-          href={`/final-project-disable/job/${user.id}`}
+      <NavLink
+          className="text-center pt-4"
+          href={`/final-project-disable/job`}
         >
           <Image
-            style={{ width: "15px" }}
+            style={{ width: "20px" }}
             src={process.env.PUBLIC_URL + "/Assets/bag.png"}
           />
-          <p style={{ color: "white", fontSize: "10pt" }}>Lowongan</p>
-        </NavLink> */}
-      <NavLink
-        className="text-center pt-4"
-        href={`/final-project-disable/notification/${user.id}`}
-      >
-        <Image
-          style={{ width: "20px" }}
-          src={process.env.PUBLIC_URL + "/Assets/bell.png"}
-        />
-        <p style={{ color: "white", fontSize: "10pt" }}>Notifikasi</p>
-      </NavLink>
+          <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Lowongan</p>
+        </NavLink>
       <NavLink
         className="text-center pt-4"
         href={`/final-project-disable/chat/${user.id}`}
@@ -134,7 +124,17 @@ function HeaderFeed() {
           style={{ width: "22px" }}
           src={process.env.PUBLIC_URL + "/Assets/chat.png"}
         />
-        <p style={{ color: "white", fontSize: "10pt" }}>Chat</p>
+        <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Chat</p>
+      </NavLink>
+      <NavLink
+        className="text-center pt-4"
+        href={`/final-project-disable/notification/${user.id}`}
+      >
+        <Image
+          style={{ width: "22px" }}
+          src={process.env.PUBLIC_URL + "/Assets/bell.png"}
+        />
+        <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Notifikasi</p>
       </NavLink>
       <NavLink
         className="text-center"

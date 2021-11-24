@@ -29,39 +29,39 @@ function About() {
             </h2>
         </div>
       </div>
-
-            <div className="mt-5 pt-3 d-flex justify-content-center title-margin">
-                    <h1 className="fw-bolder text-center">Meet Our Team</h1>
-            </div>
-            <main>
-              <div className="d-flex justify-content-around">
-                  <div className="d-flex justify-content-center">
-                      <div className="row align-items-center">
-                          <div className="col-md-4 mt-4">
-                              <Image className="img-side" src={process.env.PUBLIC_URL + ""} alt="" />
-                              <div>
-                                  <p className="text-name">Ajie Darmawan</p>
-                                  <p className="text-role">Frontend Developer</p>
-                              </div>
+        <div className="mt-5 pt-3 d-flex justify-content-center title-margin">
+          <h1 className="fw-bolder text-center">Meet Our Team</h1>
+        </div>
+        <main>
+          <div className="d-flex justify-content-around">
+              <div className="d-flex justify-content-center">
+                  <div className="row align-items-center">
+                      <div className="col-md-4 mt-4">
+                          <Image className="img-side" src={process.env.PUBLIC_URL + "/Assets/ajie.jpg"} alt="" />
+                          <div>
+                              <p className="text-name">Ajie Darmawan</p>
+                              <p className="text-role">Frontend Developer</p>
                           </div>
-                          <div className="col-md-4 mt-4">
-                              <img className="img-center" src={process.env.PUBLIC_URL + "/Assets/prima.jpg"} style={{width: '20vw'}} alt="" />
-                              <div>
-                                  <p className="text-name">Ari Febiansyah Prima Nasution</p>
-                                  <p className="text-role">Frontend Developer</p>
-                              </div>
+                      </div>
+                      <div className="col-md-4 mt-4">
+                          <img className="img-center" src={process.env.PUBLIC_URL + "/Assets/prima.jpg"} style={{width: '20vw'}} alt="" />
+                          <div>
+                              <p className="text-name">Ari Febiansyah Prima Nasution</p>
+                              <p className="text-role">Frontend Developer</p>
                           </div>
-                          <div className="col-md-4 mt-4">
-                              <img className="img-side" src={process.env.PUBLIC_URL + "/Assets/renni.jpg"} style={{width: '20vw'}} alt="" />
-                              <div>
-                                  <p className="text-name">Fransiska Renni</p>
-                                  <p className="text-role">Frontend Developer</p>
-                              </div>
+                      </div>
+                      <div className="col-md-4 mt-4">
+                          <img className="img-side" src={process.env.PUBLIC_URL + "/Assets/renni.jpg"} style={{width: '20vw'}} alt="" />
+                          <div>
+                              <p className="text-name">Fransiska Renni</p>
+                              <p className="text-role">Frontend Developer</p>
                           </div>
                       </div>
                   </div>
               </div>
-            </main>
+          </div>
+        </main>
+            
       <Footer />
     </>
   );
