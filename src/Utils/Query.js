@@ -11,17 +11,22 @@ query($id: Int!){
             biography
         }
         contact{
-            connection{
-                username
-            }
+            connectionID
         }
     }
 }`
 
 export const GET_CONNECTION = gql`
-query{
-    users (where: {id: {_eq: userID}}){
+query($id: Int!){
+    users (where: {id: {_eq: $id}}){
+        username
+        profile{
+            firstName
+            lastName
+        }
         contact{
+            userID
+            connectionID
             connection{
                 username
                 profile{
@@ -34,12 +39,26 @@ query{
 }`
 
 export const GET_FEED =gql`
-query($userID: Int!){
-    users (where: {id: {_eq: $userID}}){
+query($id: Int!){
+    users (where: {id: {_eq: $id}}){
         username
         profile{
             firstName
             lastName
+            status
+        }
+        contact{
+            connectionID
+        }
+        contents{
+            article
+            user{
+                username
+                profile{
+                    firstName
+                    lastName
+                }
+            }
         }
     }
 }`

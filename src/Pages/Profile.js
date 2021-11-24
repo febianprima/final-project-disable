@@ -1,12 +1,13 @@
 import React from "react";
 import { Container, Row, Col, Card, ListGroup, Image } from "react-bootstrap";
 import HeaderFeed from "../Components/HeaderFeed";
-import { GET_PROFILE } from '../Utils/Query'
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from '@apollo/client';
+import { GET_PROFILE } from '../Utils/Query';
+
+const user = JSON.parse(localStorage.getItem('userData'));
 
 function Profile() {
-  const user = JSON.parse(localStorage.getItem('userData'));
   const navigate = useNavigate();
   
   if (!user) {
@@ -111,7 +112,7 @@ function Profile() {
               </Card.Body>
             </Card>
           </Col>
-          <Col lg="4">
+          {/* <Col lg="4">
             <Card style={{ width: "20rem" }}>
               <Card.Header>Learning</Card.Header>
               <Card.Body>
@@ -140,7 +141,7 @@ function Profile() {
                 </ListGroup.Item>
               </ListGroup>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </div>

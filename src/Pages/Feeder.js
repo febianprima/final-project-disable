@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import HeaderFeed from "../Components/HeaderFeed";
 import { Link,useNavigate } from "react-router-dom";
-
 import {
   Container,
   Image,
@@ -11,32 +10,39 @@ import {
   ListGroup,
   ListGroupItem,
   Button,
-  FormInput,
+  FormInput
 } from "react-bootstrap";
 import axios from "axios";
 import Api from "../Utils/Api";
+import { useQuery } from '@apollo/client';
+import { GET_FEED } from '../Utils/Query';
 
 function Feed() {
-    const navigate = useNavigate();
-    const [photo, setPhoto] = useState("");
-    const [video, setVideo] = useState("");
-    const [article, setArticle] = useState("");
+  const navigate = useNavigate();
+  const [photo, setPhoto] = useState("");
+  const [video, setVideo] = useState("");
+  const [article, setArticle] = useState("");
+  const [isLoad, setLoad] = useState(false);
+  const [user, setUser] = useState({});    
+  const {id} = JSON.parse(localStorage.getItem('userData'));
+  const { loading, error, data } = useQuery(GET_FEED, {
+    variables: { id: user.id}
+  });
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     value: 'Please write an essay about your favorite DOM element.'
-  //   };
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem('userData'));
+    setUser(user);
+  }, [] )
 
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
+  if(loading){
+    return <div>Loading</div>
+  }
 
-  // handleChange(event) {
-  //   this.setState({value: event.target.value});
-  // }
+  if (error){
+    return <div>{error.toString()}</div>
+  }
 
-  const user = JSON.parse(localStorage.getItem('userData'));
+  console.log(data.users[0].contents)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -47,11 +53,9 @@ function Feed() {
         const userID = user.id;
       }
 
-    const id = user.id;
-
     await axios
       .post(Api.createFeed, { 
-        userID: id,
+        userID: user.id,
         photo,
         video,
         article
@@ -71,39 +75,19 @@ function Feed() {
       })
   }
 
-  // function MyVerticallyCenteredModal(props) {
-  //   return (
-  //     <Modal
-  //       {...props}
-  //       size="lg"
-  //       aria-labelledby="contained-modal-title-vcenter"
-  //       centered
-  //     >
-  //       <Modal.Header closeButton>
-  //         <Modal.Title id="contained-modal-title-vcenter">
-  //           Type your post!
-  //         </Modal.Title>
-  //       </Modal.Header>
-  //       <Modal.Body>
-  //         <textarea cols="100" placeholder="Write something good!" onChange={(e) => setStatus(e.target.value)}>
-            
-  //         </textarea>
-  //       </Modal.Body>
-  //       <Modal.Footer>
-  //         <Button variant="success" onClick= {()=>handleSubmit()}>Post</Button>
-  //         <Button variant="danger" onClick={props.onHide}>Close</Button>
-  //       </Modal.Footer>
-  //     </Modal>
-  //   );
-  // }
 return (
   <>
     <div>
       <HeaderFeed />
       <Container>
-        <Row className="mt-4">
-          <Col lg="3" className="d-flex justify-content-center mb-3">
-            <Card style={{ width: "35rem", height: "20rem" }}>
+        <Col className="mt-4">
+          <Row lg="3" className="d-flex justify-content-center mb-3">
+            <Card 
+              style={{ width: "90rem", 
+                height: "20rem", 
+                backgroundColor:'#34BE82',
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px" }}>
               <div className="d-flex justify-content-center mt-3">
                 <Link to={`/profile/${user.id}`}>
                   <Image
@@ -122,19 +106,17 @@ return (
                   style={{ textDecoration: "none", color: "black" }}
                   to="/profile"
                 >
-                  <Card.Title>Muhamad Ajie Darmawan</Card.Title>
+                  <Card.Title>{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</Card.Title>
                 </Link>
-                <Card.Text>Kerja Cerdas</Card.Text>
+                <Card.Text>@{data.users[0].username}</Card.Text>
+                <Card.Text>{data.users[0].profile[0].status}</Card.Text>
+                <Card.Text>{data.users[0].contact.length} Koneksi</Card.Text>
+                
               </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroupItem>
-                  Koneksi Anda <span style={{ float: "right" }}>50</span>
-                </ListGroupItem>
-              </ListGroup>
             </Card>
-          </Col>
-          <Col lg="8">
-            <Card className="mb-3">
+          </Row>
+          <Row lg="8">
+            <Card className="mb-3" style={{backgroundColor:'whitesmoke'}}>
               <div className="d-flex">
                 <Image
                   className="m-1"
@@ -145,7 +127,9 @@ return (
                     <Row>
                         <textarea
                             className="mt-3 mb-3 ms-4"
-                            style={{ borderRadius: "5px", width: "500px", height: "150px" }}
+                            style={{ borderRadius: "5px", 
+                              width: "70vw", 
+                              height: "150px" }}
                             size="sm"
                             variant="outline-secondary"
                             placeholder="Apa yang terjadi?"
@@ -177,11 +161,6 @@ return (
                     </div>
                     </Row>
                 </form>
-                
-{/* <MyVerticallyCenteredModal
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                /> */}
               </div>
               <Card.Body>
                 <Row>
@@ -216,19 +195,19 @@ return (
                 </Row>
               </Card.Body>
             </Card>
-            <Card className="mb-5">
+            {data.users[0].contents.map((item,index)=>(
+              <Card className="mb-5">
               <div className="d-flex">
                 <Image
                   className="m-1"
                   style={{ width: "60px", height: "60px" }}
                   src="../Assets/Pic1.jpg"
                 />
-                <span className="ms-2 mt-4">Muhamad Ajie Darmawan</span>
+                {/* <span className="ms-2 mt-4">{item.user[0].profile[0].firstName} {item.user[0].profile[0].lastName}</span> */}
               </div>
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {item.article}
                 </Card.Text>
               </Card.Body>
               <Card.Img variant="bottom" src="../Assets/Image.jpg" />
@@ -265,8 +244,9 @@ return (
                 </Row>
               </Card.Body>
             </Card>
-          </Col>
-        </Row>
+            ))}
+          </Row>
+        </Col>
       </Container>
     </div>
   </>
