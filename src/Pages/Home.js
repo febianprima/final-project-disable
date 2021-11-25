@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
+import Voice from "../Components/Voice";
 import Footer from "../Components/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 import {
@@ -21,6 +22,7 @@ function Home() {
   return (
     <>
       <Header />
+      <Voice />
       <div className={styles.warnaHero}>
         <Container>
           {/* Hero Section */}

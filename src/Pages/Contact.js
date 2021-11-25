@@ -4,7 +4,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Container, Row, Col, Form, Image, Button } from "react-bootstrap";
 
-function About() {
+function Contact() {
   return (
     <>
       <Header />
@@ -85,4 +85,4 @@ function About() {
   );
 }
 
-export default About;
+export default Contact;
