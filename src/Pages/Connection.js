@@ -86,7 +86,7 @@ const Connection = () => {
                 <Row>
                   <CardGroup>
                     {data.users[0].contact.map((item,index)=>(
-                      <Card className="m-3 text-center align-items-center" style={{backgroundColor:'#34BE82', borderRadius:'2' }}>
+                      <Card className="m-3 text-center align-items-center" style={{backgroundColor:'#34BE82', borderRadius:'20px' }}>
                         <Card.Img variant="top" className='mt-4' style={{width:'200px', borderRadius:'100%' }} src={process.env.PUBLIC_URL + "/Assets/Pic1.png"} />
                         <Card.Body>
                           <Card.Title>{item.connection.profile[0].firstName} {item.connection.profile[0].lastName}</Card.Title>

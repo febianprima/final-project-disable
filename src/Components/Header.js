@@ -17,7 +17,7 @@ function Header() {
         }}
       >
         <Container>
-          <Navbar.Brand href="/" className="text-white">
+          <Navbar.Brand href="/final-project-disable" className="text-white">
             <Image
               style={{ width: "15vw" }}
               src={process.env.PUBLIC_URL + "/Assets/logo.png"}
@@ -28,19 +28,19 @@ function Header() {
             <Nav className="m-auto">
               <Nav.Link
                 className="text-white me-4"
-                href="/"
+                href="/final-project-disable"
               >
                 Home
               </Nav.Link>
               <Nav.Link
                 className="text-white me-4"
-                href="/about"
+                href="/final-project-disable/about"
               >
                 About Us
               </Nav.Link>
               <Nav.Link
                 className="text-white"
-                href="/contact"
+                href="/final-project-disable/contact"
               >
                 Contact
               </Nav.Link>

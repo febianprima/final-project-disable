@@ -56,7 +56,7 @@ function HeaderFeed() {
     >
       <Navbar.Brand
         className="ms-4 ps-4"
-        href={`/feed/${user.id}`}
+        href={`/final-project-disable/feed/${user.id}`}
       >
         <Image
           style={{ width: "40px" }}
@@ -87,18 +87,18 @@ function HeaderFeed() {
       </Navbar.Collapse>
       <NavLink
         className="text-center pt-4"
-        href={`/feed/${user.id}`}
+        href={`/final-project-disable/feed/${user.id}`}
       >
         <Image
           style={{ width: "20px" }}
           src={process.env.PUBLIC_URL + "/Assets/home.png"}
-          href={`/feed/${user.id}`}
+          href={`/final-project-disable/feed/${user.id}`}
         />
         <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Beranda</p>
       </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/connection/${user.id}`}
+        href={`/final-project-disable/connection/${user.id}`}
       >
         <Image
           style={{ width: "27px" }}
@@ -108,7 +108,7 @@ function HeaderFeed() {
       </NavLink>
       <NavLink
           className="text-center pt-4"
-          href={`/job`}
+          href={`/final-project-disable/job`}
         >
           <Image
             style={{ width: "20px" }}
@@ -118,7 +118,7 @@ function HeaderFeed() {
         </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/chat/${user.id}`}
+        href={`/final-project-disable/chat/${user.id}`}
       >
         <Image
           style={{ width: "22px" }}
@@ -128,7 +128,7 @@ function HeaderFeed() {
       </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/notification/${user.id}`}
+        href={`/final-project-disable/notification/${user.id}`}
       >
         <Image
           style={{ width: "22px" }}
@@ -138,7 +138,7 @@ function HeaderFeed() {
       </NavLink>
       <NavLink
         className="text-center"
-        href={`/profile/${user.id}`}
+        href={`/final-project-disable/profile/${user.id}`}
       >
         <Image
           style={{ width: "40px" }}
