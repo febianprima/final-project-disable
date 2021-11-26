@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import {
   Navbar,
   Form,
@@ -14,10 +14,18 @@ import CIcon from "@coreui/icons-react";
 import Api from "../Utils/Api";
 import axios from "axios";
 
-let user = JSON.parse(localStorage.getItem("userData"));
-
 function HeaderFeed() {
   const navigate = useNavigate();
+  const [id, setID] = useState();
+
+  useEffect(()=>{
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if(!userData){
+      navigate('/login')
+      } else{
+      setID(userData.id)
+    }
+  }, [] )
 
   const logOut = () => {
     localStorage.clear();
@@ -26,7 +34,7 @@ function HeaderFeed() {
 
   const deleteAccount = async (event) => {
     await axios
-      .delete(Api.deleteUser + `/${user.id}`)
+      .delete(Api.deleteUser + `/${id}`)
       .then((res) => {
         const result = res.data;
         console.log(result);
@@ -56,7 +64,7 @@ function HeaderFeed() {
     >
       <Navbar.Brand
         className="ms-4 ps-4"
-        href={`/final-project-disable/feed/${user.id}`}
+        href={`/final-project-disable/feed/${id}`}
       >
         <Image
           style={{ width: "40px" }}
@@ -87,18 +95,18 @@ function HeaderFeed() {
       </Navbar.Collapse>
       <NavLink
         className="text-center pt-4"
-        href={`/final-project-disable/feed/${user.id}`}
+        href={`/final-project-disable/feed/${id}`}
       >
         <Image
           style={{ width: "20px" }}
           src={process.env.PUBLIC_URL + "/Assets/home.png"}
-          href={`/final-project-disable/feed/${user.id}`}
+          href={`/final-project-disable/feed/${id}`}
         />
         <p className='mt-2' style={{ color: "white", fontSize: "8pt" }}>Beranda</p>
       </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/final-project-disable/connection/${user.id}`}
+        href={`/final-project-disable/connection/${id}`}
       >
         <Image
           style={{ width: "27px" }}
@@ -118,7 +126,7 @@ function HeaderFeed() {
         </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/final-project-disable/chat/${user.id}`}
+        href={`/final-project-disable/chat/${id}`}
       >
         <Image
           style={{ width: "22px" }}
@@ -128,7 +136,7 @@ function HeaderFeed() {
       </NavLink>
       <NavLink
         className="text-center pt-4"
-        href={`/final-project-disable/notification/${user.id}`}
+        href={`/final-project-disable/notification/${id}`}
       >
         <Image
           style={{ width: "22px" }}
@@ -138,7 +146,7 @@ function HeaderFeed() {
       </NavLink>
       <NavLink
         className="text-center"
-        href={`/final-project-disable/profile/${user.id}`}
+        href={`/final-project-disable/profile/${id}`}
       >
         <Image
           style={{ width: "40px" }}

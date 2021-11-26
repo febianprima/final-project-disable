@@ -22,16 +22,18 @@ function Feed() {
   const [photo, setPhoto] = useState("");
   const [video, setVideo] = useState("");
   const [article, setArticle] = useState("");
-  const [isLoad, setLoad] = useState(false);
-  const [user, setUser] = useState({});    
-  const {id} = JSON.parse(localStorage.getItem('userData'));
+  const [id, setID] = useState();
   const { loading, error, data } = useQuery(GET_FEED, {
-    variables: { id: user.id}
+    variables: { id: id}
   });
 
   useEffect(()=>{
-    const user = JSON.parse(localStorage.getItem('userData'));
-    setUser(user);
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if(!userData){
+      navigate('/login')
+      } else{
+      setID(userData.id)
+    }
   }, [] )
 
   if(loading){
@@ -47,15 +49,9 @@ function Feed() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (!user) {
-        navigate('/login')
-      }else{
-        const userID = user.id;
-      }
-
     await axios
       .post(Api.createFeed, { 
-        userID: user.id,
+        userID: id,
         photo,
         video,
         article
@@ -90,7 +86,7 @@ return (
                 borderTopLeftRadius: "20px",
                 borderTopRightRadius: "20px" }}>
               <div className="d-flex justify-content-center mt-3">
-                <Link to={`/profile/${user.id}`}>
+                <Link to={`/profile/${id}`}>
                   <Image
                     style={{
                       width: "100px",
@@ -105,13 +101,13 @@ return (
               <Card.Body className="text-center">
                 <Link
                   style={{ textDecoration: "none", color:'black' }}
-                  to={`/profile/${user.id}`}
+                  to={`/profile/${id}`}
                 >
                   <Card.Title style={{fontWeight:'bolder',fontSize:'24pt'}}>{data.users[0].profile[0].firstName} {data.users[0].profile[0].lastName}</Card.Title>
                 </Link>
                 <Card.Text style={{fontSize:'12pt'}}>@{data.users[0].username}</Card.Text>
                 <Card.Text style={{fontWeight:'bolder',fontSize:'14pt', color:'lavender'}}>{data.users[0].profile[0].status}</Card.Text>
-                <Link style={{ textDecoration: "none", color:'black' }} to={`/connection/${user.id}`}>
+                <Link style={{ textDecoration: "none", color:'black' }} to={`/connection/${id}`}>
                   <Card.Text style={{fontWeight:'bold',fontSize:'12pt'}}>{data.users[0].contact.length} Koneksi</Card.Text>
                 </Link>
               </Card.Body>
