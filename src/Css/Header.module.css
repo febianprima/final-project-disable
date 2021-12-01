@@ -1,5 +1,6 @@
 .warnaNav {
   background-color: #34BE82;
+  opacity: 95%;
 }
 
 .btnLogin {
@@ -7,4 +8,7 @@
   width: 130px;
   height: 38px;
   border-radius: 50px;
+  background-color:green;
+  font-weight: bolder;
+  border-color: green;
 }

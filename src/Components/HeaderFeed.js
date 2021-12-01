@@ -6,7 +6,7 @@ import {
   Image,
   NavLink,
   NavDropdown,
-  Nav,
+  Nav
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { freeSet } from "@coreui/icons";

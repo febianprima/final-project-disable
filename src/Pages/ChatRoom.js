@@ -30,6 +30,7 @@ const Chatroom = () => {
         'last_name': data.users[0].profile[0].lastName
     }
     console.log(userData);
+
     axios.get('https://api.chatengine.io/users', 
         {headers: {'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d'}}
     )
@@ -46,31 +47,84 @@ const Chatroom = () => {
 
         if(condition === false){
             axios.post('https://api.chatengine.io/users/', 
-            {headers: {'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d'}},
-            {data: data}
+                {
+                    'username': userData.username,
+                    'secret': userData.secret,
+                    'email': userData.email,
+                    'first_name': userData.first_name,
+                    'last_name': userData.last_name
+                },
+                {'headers': {'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d'}}
             )
             .then((res)=>{
                 console.log(res.data);
+                condition = true;
             })
             .catch((err)=>{
                 console.log(err);
             })
         }
+
+        // if (condition === true){
+        //     axios.get('https://api.chatengine.io/chats', 
+        //         {headers: {
+        //             'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d',
+        //             'User-Name': userData.username,
+        //             'User-Secret': userData.secret
+        //         }}
+        //     )
+        //     .then((res)=>{
+        //     const admin = res.data.map((item,index)=>(item.admin.username));
+        //     condition = false;
+            
+        //     if(admin[0] === userData.username){
+        //         condition = true;
+        //     }
+
+        //     console.log(admin,condition)
+
+        //     if(condition === false){
+        //         axios.post('https://api.chatengine.io/chats/', 
+        //             {
+        //                 'title': 'D-IS-ABLE CHATROOM',
+        //                 'is_direct_chat': true
+        //             },
+        //             {'headers': {
+        //                 'PRIVATE-KEY': '18b60e43-a4f3-41be-a102-086d0299604d',
+        //                 'User-Name': userData.username,
+        //                 'User-Secret': userData.secret
+        //             }}
+        //         )
+        //         .then((res)=>{
+        //             console.log(res.data);
+        //             condition = true;
+        //         })
+        //         .catch((err)=>{
+        //             console.log(err);
+        //         })
+        //     }
+        // })
+        // .catch((err)=>{
+        //     console.log(err);
+        // })
+        // }
     })
     .catch((err)=>{
         console.log(err);
     })
 
+    
+
     return(
         <div>
             <HeaderFeed />
-            {/* <ChatEngine
+            <ChatEngine
                 height='85vh'
                 projectID='8a530897-5d7d-4884-b1d4-ecc5bd6094a9'
                 userName={userData.username}
                 userSecret={userData.secret}
                 renderChatFeed = {(chatAppProps) => <ChatFeed {...chatAppProps} />}
-            /> */}
+            />
         </div>
     )
 }

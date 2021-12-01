@@ -5,10 +5,8 @@ import {
   Row,
   Col,
   Card,
-  ListGroupItem,
   Image,
-  ListGroup,
-  CardGroup,
+  CardGroup
 } from "react-bootstrap";
 import { Link,useNavigate } from "react-router-dom";
 import { useQuery } from '@apollo/client';
